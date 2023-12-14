@@ -1,6 +1,7 @@
 ### IntelliJ IDEA ###
 out/
 guesswho.iml
+.idea
 !**/src/main/**/out/
 !**/src/test/**/out/
 
