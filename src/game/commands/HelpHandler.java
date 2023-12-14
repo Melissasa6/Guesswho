@@ -1,4 +1,4 @@
-package Guess_who_game.commands;
+package game.commands;
 
 public class HelpHandler implements CommandHandler{
 

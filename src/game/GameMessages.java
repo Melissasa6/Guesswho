@@ -1,4 +1,4 @@
-package Guess_who_game;
+package game;
 
 public final class GameMessages {
     public static final String PERMISSION_TO_TALK = "/talk now\n";

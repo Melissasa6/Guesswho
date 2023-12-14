@@ -1,4 +1,4 @@
-package Guess_who_game;
+package game;
 
 import server.Server;
 

@@ -26,7 +26,7 @@ public class Server {
             serverSocket = new ServerSocket();
             service = Executors.newFixedThreadPool(2);
             int numberOfConnections = 0;
-            System.out.printf(Messages.SERVER_START, port);
+            System.out.printf(ServerMessages.SERVER_START, port);
 
             while (true) {
                 acceptConnection(numberOfConnections);

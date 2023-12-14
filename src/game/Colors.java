@@ -1,3 +1,5 @@
+package game;
+
 public enum Colors {
 
     BROWN("brown"),
