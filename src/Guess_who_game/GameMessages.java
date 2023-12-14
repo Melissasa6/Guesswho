@@ -14,7 +14,7 @@ public final class GameMessages {
             "1 - Is he a man?\n" +
             "2 - Is she a women?\n" +
             "3 - Is he old?\n" +
-            "4 -Is his hair blond?\n" +
+            "4 - Is his hair blond?\n" +
             "5 - Is his hair brown?\n" +
             "6 - Is he bold?\n" +
             "7 - Does he have a hat?\n" +
