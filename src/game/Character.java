@@ -1,6 +1,8 @@
+package game;
+
 public class Character {
     /*
-    Properties of each Character:
+    Properties of each game.Character:
     - Name
     - Hair color
     - Shirt color

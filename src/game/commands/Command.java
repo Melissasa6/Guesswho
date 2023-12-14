@@ -1,4 +1,4 @@
-package Guess_who_game.commands;
+package game.commands;
 
 public enum Command {
     QUESTION("/question", new QuestionHandler()),
@@ -7,8 +7,6 @@ public enum Command {
 
     private String description;
     private CommandHandler handler;
-
-
 
     Command(String description, CommandHandler handler){
         this.description = description;

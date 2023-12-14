@@ -1,4 +1,4 @@
-package Guess_who_game.Ascii_art;
+package game.Ascii_art;
 
 public class Winner {
 
