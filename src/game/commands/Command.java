@@ -1,9 +1,12 @@
 package game.commands;
 
+import java.util.List;
+
 public enum Command {
     QUESTION("/question", new QuestionHandler()),
     HELP("/help", new HelpHandler()),
-    GUESS ("/guess", new GuessHandler());
+    GUESS ("/guess", new GuessHandler()),
+    LIST("/list", new ListHandler());
 
     private String description;
     private CommandHandler handler;
