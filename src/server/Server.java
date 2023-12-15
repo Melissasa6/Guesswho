@@ -2,11 +2,10 @@ package server;
 
 import game.GuessWhoGame;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
-import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Server {
 
@@ -19,30 +18,42 @@ public class Server {
         }
     }
 
+    private ExecutorService service;
     private ServerSocket serverSocket;
-    private GuessWhoGame game;
+    //private List<GuessWhoGame> gameList;
     private int connectedPlayers;
     private static int PORT = 8080;
-    private int MAX_PLAYERS = 2;
 
     public Server() {
+        //gameList = new LinkedList<>();
     }
 
     public void start(int port) throws IOException {
         serverSocket = new ServerSocket(port);
-        System.out.printf(ServerMessages.SERVER_START, port);
+        service = Executors.newCachedThreadPool();
+        System.out.println(ServerMessages.SERVER_START + port);
+        GuessWhoGame game = new GuessWhoGame(this);
+        service.execute(game);
+        System.out.println(ServerMessages.GAME_START);
 
         while (serverSocket.isBound()) {
 
+            if (!game.isGameFull()){
+                game.acceptPlayer(serverSocket.accept());
+                System.out.println(ServerMessages.PLAYER_ADDED);
+            }
         }
-
     }
+
 
     private void createGame() {
-        //create an instance of GuessWho game class
+        GuessWhoGame game = new GuessWhoGame(this);
+        //gameList.add(game);
+        service.execute(game);
     }
 
-    public void acceptConnection(int numberOfConnections) throws IOException {
+
+    /*public void acceptConnection(int numberOfConnections) throws IOException {
         Socket clientSocket = serverSocket.accept();
         ClientConnectionHandler clientConnectionHandler = new ClientConnectionHandler(clientSocket);
 
@@ -64,5 +75,5 @@ public class Server {
         public void run() {
 
         }
-    }
+    }*/
 }
