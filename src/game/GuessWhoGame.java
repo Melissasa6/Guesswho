@@ -14,7 +14,6 @@ public class GuessWhoGame implements Runnable{
     private ExecutorService service;
     private final List<PlayerHandler> clients;
     private int MAX_PLAYERS = 2;
-
     private boolean isGameStarted;
     private boolean isGameEnded;
 
@@ -26,6 +25,14 @@ public class GuessWhoGame implements Runnable{
         isGameEnded = false;
     }
 
+    @Override
+    public void run() {
+        while (true) {
+            if (canGameStart()) {
+
+            }
+        }
+    }
 
     public boolean isGameFull(){
         return clients.size() == MAX_PLAYERS;
@@ -45,9 +52,100 @@ public class GuessWhoGame implements Runnable{
 
     }
 
-    public void broadcast() {
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public class PlayerHandler implements Runnable {
 
@@ -58,23 +156,12 @@ public class GuessWhoGame implements Runnable{
 
 
         public PlayerHandler(Socket playerSocket) {
-            this.playerSocket =playerSocket;
+            this.playerSocket = playerSocket;
         }
 
         @Override
         public void run() {
 
-        }
-    }
-    @Override
-    public void run() {
-        while (true) {
-            if (canGameStart()) {
-
-
-
-
-            }
         }
     }
 }
