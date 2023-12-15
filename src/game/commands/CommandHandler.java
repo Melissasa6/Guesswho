@@ -1,9 +1,10 @@
 package game.commands;
 
+import client.Client;
+
 public interface CommandHandler {
 
-
-  // default void execute(GuessWho game, GuessWho.PlayerHandler playerHandler) throws NullPointerException;
+  void handleCommands(Client client, String[] commands) throws NullPointerException;
 
 }
 
