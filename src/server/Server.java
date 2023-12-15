@@ -1,44 +1,44 @@
 package server;
 
+import game.GuessWhoGame;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class Server {
 
-    private ServerSocket serverSocket;
-    private ExecutorService service;
-    private final List<ClientConnectionHandler> clients;
-
-    public Server() {
-        clients = new CopyOnWriteArrayList<>();
-    }
-
-    public void start(int port) {
-
+    public static void main(String[] args) {
+        Server server = new Server();
         try {
-            serverSocket = new ServerSocket();
-            service = Executors.newFixedThreadPool(2);
-            int numberOfConnections = 0;
-            System.out.printf(ServerMessages.SERVER_START, port);
-
-            while (true) {
-                acceptConnection(numberOfConnections);
-                ++numberOfConnections;
-            }
+            server.start(PORT);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private ServerSocket serverSocket;
+    private GuessWhoGame game;
+    private int connectedPlayers;
+    private static int PORT = 8080;
+    private int MAX_PLAYERS = 2;
+
+    public Server() {
+    }
+
+    public void start(int port) throws IOException {
+        serverSocket = new ServerSocket(port);
+        System.out.printf(ServerMessages.SERVER_START, port);
+
+        while (serverSocket.isBound()) {
+
         }
 
     }
 
-    private void createGuessWho() {
+    private void createGame() {
         //create an instance of GuessWho game class
     }
 
@@ -64,9 +64,5 @@ public class Server {
         public void run() {
 
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }
