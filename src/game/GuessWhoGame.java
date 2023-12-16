@@ -2,6 +2,10 @@ package game;
 
 import server.Server;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -14,7 +18,6 @@ public class GuessWhoGame implements Runnable{
     private ExecutorService service;
     private final List<PlayerHandler> clients;
     private int MAX_PLAYERS = 2;
-
     private boolean isGameStarted;
     private boolean isGameEnded;
 
@@ -26,6 +29,14 @@ public class GuessWhoGame implements Runnable{
         isGameEnded = false;
     }
 
+    @Override
+    public void run() {
+        while (true) {
+            if (canGameStart()) {
+
+            }
+        }
+    }
 
     public boolean isGameFull(){
         return clients.size() == MAX_PLAYERS;
@@ -45,35 +56,157 @@ public class GuessWhoGame implements Runnable{
 
     }
 
-    public void broadcast() {
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public class PlayerHandler implements Runnable {
 
         private String name;
         private Socket playerSocket;
+        private PrintWriter out;
+        private BufferedReader in;
         private Character[] characterList;
         private Character chosenCharacter;
 
 
         public PlayerHandler(Socket playerSocket) {
-            this.playerSocket =playerSocket;
+            this.playerSocket = playerSocket;
+            try {
+                out = new PrintWriter(playerSocket.getOutputStream(), true);
+                in = new BufferedReader(new InputStreamReader(playerSocket.getInputStream()));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         @Override
         public void run() {
+            sendMessage(GameMessages.WELCOME_MESSAGE);
+            name = askName();
 
+            sendMessage("lol?");
+            if (clients.size() < MAX_PLAYERS) {
+                sendMessage(GameMessages.WAITING_FOR_ANOTHER_PLAYER);
+            }
         }
-    }
-    @Override
-    public void run() {
-        while (true) {
-            if (canGameStart()) {
 
+        private void sendMessage(String message) {
+            out.println(message);
+            out.flush();
+        }
 
+        private String askName() {
+            sendMessage(GameMessages.ENTER_NAME);
+            String userInput = null;
+            try {
+                userInput = in.readLine();
+                if (userInput.length() < 4) {
+                    sendMessage("Invalid name.");
+                    askName();
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return userInput;
+        }
 
-
+        private void quitGame() {
+            try {
+                playerSocket.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
