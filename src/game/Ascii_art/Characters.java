@@ -2,9 +2,6 @@ package game.Ascii_art;
 
 public class Characters {
 
-
-    final String asciiArtGlasses = "⌐■-■";
-
     final String asciiArtOne =
             ACS.ANSI_YELLOW +
                     "  ###########\n" +
