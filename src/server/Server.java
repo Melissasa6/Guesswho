@@ -31,6 +31,7 @@ public class Server {
         serverSocket = new ServerSocket(port);
         service = Executors.newSingleThreadExecutor();
         System.out.println(ServerMessages.SERVER_START + port);
+
         GuessWhoGame game = new GuessWhoGame(this);
         service.execute(game);
         System.out.println(ServerMessages.GAME_CREATED);
@@ -49,29 +50,4 @@ public class Server {
         //gameList.add(game);
         service.execute(game);
     }
-
-
-    /*public void acceptConnection(int numberOfConnections) throws IOException {
-        Socket clientSocket = serverSocket.accept();
-        ClientConnectionHandler clientConnectionHandler = new ClientConnectionHandler(clientSocket);
-
-    }
-
-    public class ClientConnectionHandler implements Runnable {
-
-        private String name;
-        private final Socket clientSocket;
-        private final BufferedWriter out;
-        private String message;
-
-        public ClientConnectionHandler(Socket clientSocket) throws IOException {
-            this.clientSocket = clientSocket;
-            this.out = new BufferedWriter(new OutputStreamWriter((clientSocket.getOutputStream())));
-        }
-
-        @Override
-        public void run() {
-
-        }
-    }*/
 }

@@ -176,9 +176,11 @@ public class GuessWhoGame implements Runnable{
             sendMessage(GameMessages.WELCOME_MESSAGE);
             name = askName();
 
-            sendMessage("lol?");
             if (clients.size() < MAX_PLAYERS) {
-                sendMessage(GameMessages.WAITING_FOR_ANOTHER_PLAYER);
+                sendMessage(GameMessages.WAITING_FOR_PLAYER_JOIN);
+            }
+            if (clients.size() == MAX_PLAYERS) {
+                sendMessage(GameMessages.WAITING_FOR_PLAYER_NAME);
             }
         }
 
@@ -192,7 +194,7 @@ public class GuessWhoGame implements Runnable{
             String userInput = null;
             try {
                 userInput = in.readLine();
-                if (userInput.length() < 4) {
+                if (userInput.length() < 3) {
                     sendMessage("Invalid name.");
                     askName();
                 }

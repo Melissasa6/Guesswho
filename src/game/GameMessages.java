@@ -2,9 +2,10 @@ package game;
 
 public final class GameMessages {
 
-    public static final String ENTER_NAME = "Please enter your name:";
-    public static final String WAITING_FOR_ANOTHER_PLAYER = "Waiting for another player to join...";
     public static final String WELCOME_MESSAGE = "--Welcome to GUESS WHO! Are you ready?--\n";
+    public static final String ENTER_NAME = "Please enter your name:";
+    public static final String WAITING_FOR_PLAYER_JOIN = "Waiting for another player to join...";
+    public static final String WAITING_FOR_PLAYER_NAME = "The other player is still choosing a name. Please wait...";
     public static final String PLAYER_JOINED = "Player %s joined the game!\n";
     public static final String START_GAME = "\n--The GUESS WHO is about to start!--\n";
     public static final String THIS_IS_THE_CHARACTER = "This is the character that you will try to guess\n";
