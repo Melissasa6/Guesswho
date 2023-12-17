@@ -1,5 +1,6 @@
 package game;
 
+import game.Ascii_art.Winner;
 import server.Server;
 
 import java.io.BufferedReader;
@@ -33,6 +34,7 @@ public class GuessWhoGame implements Runnable{
     public void run() {
         while (true) {
             if (canGameStart()) {
+
 
             }
         }
@@ -157,8 +159,8 @@ public class GuessWhoGame implements Runnable{
         private Socket playerSocket;
         private PrintWriter out;
         private BufferedReader in;
-        private Character[] characterList;
-        private Character chosenCharacter;
+        private Card[] cardList;
+        private Card chosenCard;
 
 
         public PlayerHandler(Socket playerSocket) {
@@ -173,8 +175,11 @@ public class GuessWhoGame implements Runnable{
 
         @Override
         public void run() {
+            sendMessage(Winner.TITLE);
             sendMessage(GameMessages.WELCOME_MESSAGE);
             name = askName();
+
+            sendMessage(GameMessages.COMMAND_HELP);
 
             if (clients.size() < MAX_PLAYERS) {
                 sendMessage(GameMessages.WAITING_FOR_PLAYER_JOIN);
@@ -204,12 +209,12 @@ public class GuessWhoGame implements Runnable{
             return userInput;
         }
 
-        private void quitGame() {
+        /*private void quitGame() {
             try {
                 playerSocket.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }
+        }*/
     }
 }

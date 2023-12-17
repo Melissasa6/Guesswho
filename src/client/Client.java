@@ -6,8 +6,6 @@ import java.net.Socket;
 public class Client {
 
     private Socket clientSocket;
-    /*private BufferedReader in;
-    private BufferedWriter out;*/
     private boolean isPlayerTurn;
 
     public Client() {
