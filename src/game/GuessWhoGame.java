@@ -35,7 +35,6 @@ public class GuessWhoGame implements Runnable{
         while (true) {
             if (canGameStart()) {
 
-
             }
         }
     }
@@ -216,5 +215,7 @@ public class GuessWhoGame implements Runnable{
                 throw new RuntimeException(e);
             }
         }*/
+
     }
+
 }
