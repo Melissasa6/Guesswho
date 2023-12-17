@@ -21,7 +21,6 @@ public class Server {
     private ExecutorService service;
     private ServerSocket serverSocket;
     //private List<GuessWhoGame> gameList;
-    private int connectedPlayers;
     private static int PORT = 8080;
 
     public Server() {
@@ -30,14 +29,14 @@ public class Server {
 
     public void start(int port) throws IOException {
         serverSocket = new ServerSocket(port);
-        service = Executors.newCachedThreadPool();
+        service = Executors.newSingleThreadExecutor();
         System.out.println(ServerMessages.SERVER_START + port);
+
         GuessWhoGame game = new GuessWhoGame(this);
         service.execute(game);
-        System.out.println(ServerMessages.GAME_START);
+        System.out.println(ServerMessages.GAME_CREATED);
 
         while (serverSocket.isBound()) {
-
             if (!game.isGameFull()){
                 game.acceptPlayer(serverSocket.accept());
                 System.out.println(ServerMessages.PLAYER_ADDED);
@@ -51,29 +50,4 @@ public class Server {
         //gameList.add(game);
         service.execute(game);
     }
-
-
-    /*public void acceptConnection(int numberOfConnections) throws IOException {
-        Socket clientSocket = serverSocket.accept();
-        ClientConnectionHandler clientConnectionHandler = new ClientConnectionHandler(clientSocket);
-
-    }
-
-    public class ClientConnectionHandler implements Runnable {
-
-        private String name;
-        private final Socket clientSocket;
-        private final BufferedWriter out;
-        private String message;
-
-        public ClientConnectionHandler(Socket clientSocket) throws IOException {
-            this.clientSocket = clientSocket;
-            this.out = new BufferedWriter(new OutputStreamWriter((clientSocket.getOutputStream())));
-        }
-
-        @Override
-        public void run() {
-
-        }
-    }*/
 }

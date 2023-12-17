@@ -1,5 +1,7 @@
 package game.Ascii_art;
 
+public class Cards {
+
 public class Characters {
 
 
@@ -48,5 +50,5 @@ public class Characters {
                     "      /$$$$$\\$$$$$$$\\`.\n" +
                     "     /$$$$$$\\$$$$$$$$\\`.";
 
-
+    }
 }

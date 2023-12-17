@@ -1,6 +1,6 @@
 package game;
 
-public class Character {
+public class Card {
     /*
     Properties of each game.Character:
     - Name
@@ -23,7 +23,7 @@ public class Character {
     // should we add a mustache color too? if !mustache, mustacheColor = null?
     private final boolean smile;
 
-    public Character(String characterName, Colors hairColor, Colors shirtColor, Colors eyeColor, boolean glasses, boolean hat, boolean mustache, boolean smile){
+    public Card(String characterName, Colors hairColor, Colors shirtColor, Colors eyeColor, boolean glasses, boolean hat, boolean mustache, boolean smile){
         this.characterName = characterName;
         this.hairColor = hairColor;
         this.shirtColor = shirtColor;
