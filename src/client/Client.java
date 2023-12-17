@@ -18,6 +18,7 @@ public class Client {
         try {
             client.start("localhost", 8080); //change to constant variables
         } catch (IOException e) {
+
             System.out.println("Disconnected.");
         }
         //client.readMessage();
