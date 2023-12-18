@@ -19,9 +19,9 @@ public class Server {
     }
 
     private ExecutorService service;
-    private ServerSocket serverSocket;
+    public ServerSocket serverSocket;
     //private List<GuessWhoGame> gameList;
-    private static int PORT = 8080;
+    private static final int PORT = 8080;
 
     public Server() {
         //gameList = new LinkedList<>();
@@ -42,12 +42,5 @@ public class Server {
                 System.out.println(ServerMessages.PLAYER_ADDED);
             }
         }
-    }
-
-
-    private void createGame() {
-        GuessWhoGame game = new GuessWhoGame(this);
-        //gameList.add(game);
-        service.execute(game);
     }
 }

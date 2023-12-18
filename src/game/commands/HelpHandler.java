@@ -1,14 +1,15 @@
 package game.commands;
 
-import client.Client;
+
+import game.Ascii_art.Cards;
+import game.GameMessages;
+import game.GuessWhoGame;
+import server.Server;
 
 public class HelpHandler implements CommandHandler{
 
     @Override
-    public void handleCommands(Client client, String[] commands) throws NullPointerException {
-        System.out.println("Available Commands:");
-        for (Command command : Command.values()){
-            System.out.println(command.getDescription());
-        }
+    public void handleCommands(GuessWhoGame game, GuessWhoGame.PlayerHandler playerHandler) {
+        playerHandler.sendMessage(GameMessages.COMMAND_HELP);
     }
 }
