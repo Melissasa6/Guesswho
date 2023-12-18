@@ -1,37 +1,35 @@
 package game.Ascii_art;
-
-import java.sql.SQLOutput;
-
+import static game.Ascii_art.Colors.*;
 public class Cards {
 
     static final String asciiArtOne =
-            ACS.ANSI_YELLOW +
-                    "  ###########\n" + ACS.ANSI_RESET +
-                    " /" + ACS.ANSI_YELLOW + "###########" + ACS.ANSI_RESET + "\\\n" +
-                    "|    " + ACS.ANSI_BLUE + "0   0" + ACS.ANSI_RESET + "    |\n" +
+            YELLOW.getAsciiCode() +
+                    "  ###########\n" + RESET.getAsciiCode() +
+                    " /" + YELLOW.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\\n" +
+                    "|    " + BLUE.getAsciiCode() + "0   0" + RESET.getAsciiCode() + "    |\n" +
                     "\\/\\    ^    /\\/\n" +
                     "   \\  ===  /\n" +
                     "    \\_____/\n" +
                     "     _|_|_\n" +
-                    "    /" + ACS.ANSI_GREEN +
-                    "$$$$$" + ACS.ANSI_RESET  + "\\\n" +
-                    "   /|" + ACS.ANSI_GREEN + "$$$$$" +
-                    ACS.ANSI_RESET + "|\\\n" +
-                    " | |" + ACS.ANSI_GREEN + "$$$$$$$" + ACS.ANSI_RESET + "| |\n" +
-                    " | |" + ACS.ANSI_GREEN + "$$$$$$$" + ACS.ANSI_RESET + "| |\n";
+                    "    /" + GREEN.getAsciiCode() +
+                    "$$$$$" + RESET.getAsciiCode()  + "\\\n" +
+                    "   /|" + GREEN.getAsciiCode() + "$$$$$" +
+                    RESET.getAsciiCode() + "|\\\n" +
+                    " | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n" +
+                    " | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n";
 
     static final String asciiArtTwo =
-            "  " + ACS.ANSI_RED + "###########" + ACS.ANSI_RESET + "\n" +
-                    " /" + ACS.ANSI_RED + "###########" + ACS.ANSI_RESET + "\\\n" +
+            "  " + RED.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\n" +
+                    " /" + RED.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\\n" +
                     "|    ■ - ■    |\n" +
                     "\\/\\    >    /\\/\n" +
                     "   \\  ===  /\n" +
                     "    \\_____/\n" +
                     "     _|_|_\n" +
-                    "    /" + ACS.ANSI_PURPLE + "$$$$$" + ACS.ANSI_RESET + "\\\n" +
-                    "   /|" + ACS.ANSI_PURPLE + "$$$$$" + ACS.ANSI_RESET + "|\\\n" +
-                    " | |" + ACS.ANSI_PURPLE + "$$$$$$$" + ACS.ANSI_RESET + "| |\n" +
-                    " | |" + ACS.ANSI_PURPLE + "$$$$$$$" + ACS.ANSI_RESET + "| |\n";
+                    "    /" + PURPLE.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "\\\n" +
+                    "   /|" + PURPLE.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "|\\\n" +
+                    " | |" + PURPLE.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n" +
+                    " | |" + PURPLE.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n";
 
     static final String asciiArtThree =
                     "       .'  `'.\n" +
@@ -42,37 +40,37 @@ public class Cards {
                     "      \\   '=  /\n" +
                     "      /`-.__.'\n" +
                     "   .-'`-.___|__\n" +
-                    "  /" + ACS.ANSI_BLUE + "$$$$$" + ACS.ANSI_RESET + "\\" + ACS.ANSI_BLUE + "$$$$$$$" + ACS.ANSI_RESET + "\\`.\n" +
-                    " /" + ACS.ANSI_BLUE + "$$$$$$" + ACS.ANSI_RESET + "\\" + ACS.ANSI_BLUE + "$$$$$$$$" + ACS.ANSI_RESET + "\\`.";
+                    "  /" + BLUE.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "\\" + BLUE.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "\\`.\n" +
+                    " /" + BLUE.getAsciiCode() + "$$$$$$" + RESET.getAsciiCode() + "\\" + BLUE.getAsciiCode() + "$$$$$$$$" + RESET.getAsciiCode() + "\\`.";
 
     static final String asciiArtFour =
-            ACS.ANSI_RED +
-                    "  ###########" + ACS.ANSI_RESET + "\n" +
-                    " /" + ACS.ANSI_RED + "###########" + ACS.ANSI_RESET + "\\\n" +
-                    "|    " + ACS.ANSI_GREEN + "0   0" + ACS.ANSI_RESET + "    |\n" +
+            RED.getAsciiCode() +
+                    "  ###########" + RESET.getAsciiCode() + "\n" +
+                    " /" + RED.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\\n" +
+                    "|    " + GREEN.getAsciiCode() + "0   0" + RESET.getAsciiCode() + "    |\n" +
                     "\\/\\    ^    /\\/\n" +
                     "   \\  ===  /\n" +
                     "    \\_____/\n" +
                     "     _|_|_\n" +
-                    "    /" + ACS.ANSI_YELLOW +
-                    "$$$$$" + ACS.ANSI_RESET  + "\\\n" +
-                    "   /|" + ACS.ANSI_YELLOW + "$$$$$" +
-                    ACS.ANSI_RESET + "|\\\n" +
-                    " | |" + ACS.ANSI_YELLOW + "$$$$$$$" + ACS.ANSI_RESET + "| |\n" +
-                    " | |" + ACS.ANSI_YELLOW + "$$$$$$$" + ACS.ANSI_RESET + "| |\n";
+                    "    /" + YELLOW.getAsciiCode() +
+                    "$$$$$" + RESET.getAsciiCode()  + "\\\n" +
+                    "   /|" + YELLOW.getAsciiCode() + "$$$$$" +
+                    RESET.getAsciiCode() + "|\\\n" +
+                    " | |" + YELLOW.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n" +
+                    " | |" + YELLOW.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n";
 
     static final String asciiArtFive =
-            "  " + ACS.ANSI_PURPLE + "###########" + ACS.ANSI_RESET + "\n" +
-                    " /" + ACS.ANSI_PURPLE + "###########" + ACS.ANSI_RESET + "\\\n" +
+            "  " + PURPLE.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\n" +
+                    " /" + PURPLE.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\\n" +
                     "|    ■ - ■    |\n" +
                     "\\/\\    >    /\\/\n" +
                     "   \\  ===  /\n" +
                     "    \\_____/\n" +
                     "     _|_|_\n" +
-                    "    /" + ACS.ANSI_RED + "$$$$$" + ACS.ANSI_RESET + "\\\n" +
-                    "   /|" + ACS.ANSI_RED + "$$$$$" + ACS.ANSI_RESET + "|\\\n" +
-                    " | |" + ACS.ANSI_RED + "$$$$$$$" + ACS.ANSI_RESET + "| |\n" +
-                    " | |" + ACS.ANSI_RED + "$$$$$$$" + ACS.ANSI_RESET + "| |\n";
+                    "    /" + RED.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "\\\n" +
+                    "   /|" + RED.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "|\\\n" +
+                    " | |" + RED.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n" +
+                    " | |" + RED.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n";
 
     static final String asciiArtSix =
             "       .'  `'.\n" +
@@ -80,17 +78,17 @@ public class Cards {
                     "      #_/.\\==/.\\\n" +
                     "     (, \\_/ \\\\_/\n" +
                     "      |    -' |\n" +
-                    "      |  " + ACS.ANSI_YELLOW + "^~~~^" + ACS.ANSI_RESET + " |\n" +
+                    "      |  " + YELLOW.getAsciiCode() + "^~~~^" + RESET.getAsciiCode() + " |\n" +
                     "      \\   '=  /\n" +
                     "      /`-.__.'\n" +
                     "   .-'`-.___|__\n" +
-                    "  /" + ACS.ANSI_GREEN + "$$$$$" + ACS.ANSI_RESET + "\\" + ACS.ANSI_GREEN + "$$$$$$$" + ACS.ANSI_RESET + "\\`.\n" +
-                    " /" + ACS.ANSI_GREEN + "$$$$$$" + ACS.ANSI_RESET + "\\" + ACS.ANSI_GREEN + "$$$$$$$$" + ACS.ANSI_RESET + "\\`.";
+                    "  /" + GREEN.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "\\" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "\\`.\n" +
+                    " /" + GREEN.getAsciiCode() + "$$$$$$" + RESET.getAsciiCode() + "\\" + GREEN.getAsciiCode() + "$$$$$$$$" + RESET.getAsciiCode() + "\\`.";
 
     public static void main(String[] args) {
-//        System.out.println(asciiArtOne);
-//        System.out.println(asciiArtTwo);
-//        System.out.println(asciiArtThree);
+        System.out.println(asciiArtOne);
+        System.out.println(asciiArtTwo);
+        System.out.println(asciiArtThree);
         System.out.println(asciiArtFour);
         System.out.println(asciiArtFive);
         System.out.println(asciiArtSix);
