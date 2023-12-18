@@ -1,15 +1,22 @@
 package game.commands;
 
 import client.Client;
+import game.GameMessages;
+import game.GuessWhoGame;
+import server.Server;
+
+import java.util.Arrays;
 
 public class QuestionHandler implements CommandHandler{
     @Override
-    public void handleCommands(Client client, String[] commands) throws NullPointerException {
-        if (commands.length < 2){
-            System.out.println("Invalid question. Use: /question <trait_name>");
-            return;
-        }
+    public void handleCommands(GuessWhoGame game, GuessWhoGame.PlayerHandler playerHandler) throws NullPointerException {
+        GuessWhoGame.PlayerHandler opponent = game.getOpponent(playerHandler);
+        playerHandler.sendMessage(GameMessages.CHOOSE_A_QUESTION);
+        String[] question = GameMessages.CHOOSE_A_QUESTION.split("\\n");
+        String messageToSend = question[Integer.parseInt(playerHandler.getIn().nextLine())];
+        opponent.sendMessage(messageToSend);
 
-        String askedTrait = commands[1];
+        //String answer = opponent.getIn().nextLine();
+        //playerHandler.sendMessage(answer);
     }
 }

@@ -5,88 +5,64 @@ import java.net.Socket;
 
 public class Client {
 
-    private Socket clientSocket;
-    private boolean isPlayerTurn;
-
-    public Client() {
-        this.isPlayerTurn = false;
-    }
-
     public static void main(String[] args) {
         Client client = new Client();
-
         try {
-            client.start("localhost", 8080); //change to constant variables
+            client.start("localhost", 8080);
         } catch (IOException e) {
-
-            System.out.println("Disconnected.");
+            System.out.println("Connection closed...");
         }
-        //client.readMessage();
-    }
 
+    }
 
     private void start(String host, int port) throws IOException {
-        clientSocket = new Socket(host,port);
-        BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+        Socket socket = new Socket(host, port);
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-        new Thread(new PlayerInput(out)).start();
+        new Thread(new PlayerInput(out, socket)).start();
         String line;
-        while ((line = in.readLine()) != null) {
+        while (( line = in.readLine()) != null) {
             System.out.println(line);
         }
-        clientSocket.close();
-
-        //out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+        socket.close();
     }
-
-    private void readMessage() throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-        try {
-            String inputFromServer = in.readLine();
-            if (inputFromServer == null){
-                System.out.println("You have been disconnected...");
-                return;
-            }
-            System.out.println(inputFromServer);
-            readMessage();
-        } catch (IOException e) {
-            throw new RuntimeException("No message");
-        }
-    }
-
 
     private class PlayerInput implements Runnable {
-        private PrintWriter out;
+        private BufferedWriter out;
+        private Socket playerSocket;
         private BufferedReader in;
 
-        public PlayerInput(PrintWriter out) {
+        public PlayerInput(BufferedWriter out, Socket playerSocket) {
             this.out = out;
+            this.playerSocket = playerSocket;
             this.in = new BufferedReader(new InputStreamReader(System.in));
         }
+
         @Override
         public void run() {
-            while (!clientSocket.isClosed()) {
-                while (!clientSocket.isClosed()) {
-                    try {
-                        String line = in.readLine();
 
-                        out.println(line);
-                        out.flush();
+            while (!playerSocket.isClosed()) {
+                try {
+                    String line = in.readLine();
 
-                        if (line.equals("/quit")) {
-                            clientSocket.close();
-                            System.exit(0);
-                        }
-                    } catch (IOException e) {
-                        System.out.println("Something went wrong with the server. Connection closing...");
-                        try {
-                            clientSocket.close();
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
+                    out.write(line);
+                    out.newLine();
+                    out.flush();
+
+                    if (line.equalsIgnoreCase("/quit")) {
+                        playerSocket.close();
+                        System.exit(0);
                     }
-                }}
+                } catch (IOException e) {
+                    System.out.println("Something went wrong with the server. Connection closing...");
+                    try {
+                        playerSocket.close();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
         }
     }
 }

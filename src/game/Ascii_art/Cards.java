@@ -1,13 +1,10 @@
 package game.Ascii_art;
 
+import game.Ascii_art.ACS;
 public class Cards {
+    public final String asciiArtGlasses = "⌐■-■";
 
-public class Characters {
-
-
-    final String asciiArtGlasses = "⌐■-■";
-
-    final String asciiArtOne =
+    public static final String asciiArtOne =
             ACS.ANSI_YELLOW +
                     "  ###########\n" +
                     " /###########\\\n" + ACS.ANSI_RESET +
@@ -24,7 +21,7 @@ public class Characters {
                     " | |$$$$$$$| |\n";
 
     final String asciiArtTwo =
-            "  ###########\n" +
+                    "  ###########\n" +
                     " /###########\\\n" +
                     "|    ■ - ■    |\n" +
                     "\\/\\    >    /\\/\n" +
@@ -50,5 +47,5 @@ public class Characters {
                     "      /$$$$$\\$$$$$$$\\`.\n" +
                     "     /$$$$$$\\$$$$$$$$\\`.";
 
-    }
+
 }
