@@ -1,10 +1,10 @@
 package game.Ascii_art;
 import javax.swing.plaf.synth.SynthOptionPaneUI;
-
-import java.sql.SQLOutput;
-
 import static game.Ascii_art.Colors.*;
+
+
 public class Cards {
+    public final String asciiArtGlasses = "⌐■-■";
 
     static final String asciiArtOneWithGlasses =
             "+------------------+\n" +
@@ -108,12 +108,5 @@ public class Cards {
                     "|  | |" + BLUE.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "+------------------+\n";
 
-    public static void main(String[] args) {
-        System.out.println(asciiArtOneWithGlasses);
-        System.out.println(asciiArtTwoWithGlasses);
-        System.out.println(asciiArtThreeWithGlasses);
-        System.out.println(asciiArtFourWithoutGlasses);
-        System.out.println(asciiArtFiveWithoutGlasses);
-        System.out.println(asciiArtSixWithoutGlasses);
-    }
+
 }
