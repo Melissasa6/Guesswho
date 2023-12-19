@@ -22,11 +22,11 @@ public class Card {
     private final boolean glasses;
     private final boolean mustache;
 
-    public Card(String characterName, Colors hairColor, Colors shirtColor, Colors eyeColor, boolean glasses, boolean hat, boolean mustache, boolean smile){
+    public Card(String characterName, Colors hairColor, Colors eyeColor, Colors shirtColor, boolean glasses, boolean mustache){
         this.characterName = characterName;
         this.hairColor = hairColor;
-        this.shirtColor = shirtColor;
         this.eyeColor = eyeColor;
+        this.shirtColor = shirtColor;
         this.glasses = glasses;
         this.mustache = mustache;
     }
@@ -37,11 +37,11 @@ public class Card {
     public Colors getHairColor() {
         return hairColor;
     }
-    public Colors getShirtColor() {
-        return shirtColor;
-    }
     public Colors getEyeColor() {
         return eyeColor;
+    }
+    public Colors getShirtColor() {
+        return shirtColor;
     }
     public boolean getGlasses(){
         return glasses;
