@@ -23,10 +23,6 @@ public class Cards {
                     "|  | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "+------------------+\n";
 
-
-
-
-
     static final String asciiArtTwoWithGlasses =
             "+------------------+\n" +
                     "|" + BROWN.getAsciiCode() +"   ###########" + RESET.getAsciiCode() + "    |\n" +
