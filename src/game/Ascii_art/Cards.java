@@ -7,22 +7,25 @@ import static game.Ascii_art.Colors.*;
 public class Cards {
 
     static final String asciiArtOneWithGlasses =
-            YELLOW.getAsciiCode() +
-                    "  ###########\n" + RESET.getAsciiCode() +
-                    " /" + YELLOW.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\\n" +
-                    "| " + ORANGE.getAsciiCode() + "  / \\  / \\   " + RESET.getAsciiCode() + "|\n" +
-                    "| " + ORANGE.getAsciiCode() + "#_|" + BROWN.getAsciiCode() + "0" + ORANGE.getAsciiCode() + "|==|" + BROWN.getAsciiCode() + "0" + ORANGE.getAsciiCode() + "|_#" + RESET.getAsciiCode() + " |\n" +
-                    "|   " + ORANGE.getAsciiCode() + "\\_/  \\_/   " + RESET.getAsciiCode() + "|\n" +
-                    "\\/\\    ^    /\\/ \n" +
-                    "   \\  ===  /\n" +
-                    "    \\_____/\n" +
-                    "     _|_|_\n" +
-                    "    /" + GREEN.getAsciiCode() +
-                    "$$$$$" + RESET.getAsciiCode()  + "\\\n" +
-                    "   /|" + GREEN.getAsciiCode() + "$$$$$" +
-                    RESET.getAsciiCode() + "|\\\n" +
-                    " | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n" +
-                    " | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n";
+            "+------------------+\n" +
+                    "|" + YELLOW.getAsciiCode() +"   ###########" + RESET.getAsciiCode() + "    |\n" +
+                    "|  /" + YELLOW.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\   |\n" +
+                    "| | " + ORANGE.getAsciiCode() + "  / \\  / \\   " + RESET.getAsciiCode() + "| |\n" +
+                    "| | " + ORANGE.getAsciiCode() + "#_|" + BROWN.getAsciiCode() + "0" + ORANGE.getAsciiCode() + "|==|" + BROWN.getAsciiCode() + "0" + ORANGE.getAsciiCode() + "|_#" + RESET.getAsciiCode() + " | |\n" +
+                    "| |   " + ORANGE.getAsciiCode() + "\\_/  \\_/   " + RESET.getAsciiCode() + "| |\n" +
+                    "| \\/\\    ^    /\\/  | \n" +
+                    "|    \\  ===  /     |\n" +
+                    "|     \\_____/      |\n" +
+                    "|      _|_|_       |\n" +
+                    "|     /" + GREEN.getAsciiCode() + "$$$$$" + RESET.getAsciiCode()  + "\\      |\n" +
+                    "|    /|" + GREEN.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "|\\     |\n" +
+                    "|  | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
+                    "|  | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
+                    "+------------------+\n";
+
+
+
+
 
     static final String asciiArtTwoWithGlasses =
             BROWN.getAsciiCode() + "  ###########\n" + RESET.getAsciiCode() +
@@ -85,39 +88,28 @@ public class Cards {
                     " | |" + PINK.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n";
 
     static final String asciiArtSixWithoutGlasses =
-            GRAY.getAsciiCode() + "  ###########\n" + RESET.getAsciiCode() +
-                    " /" + GRAY.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\\n" +
+            YELLOW.getAsciiCode() + "  ###########\n" + RESET.getAsciiCode() +
+                    " /" + YELLOW.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\\n" +
                     "|              |\n" +
-                    "|    " + BLUE.getAsciiCode() + "0" + RESET.getAsciiCode() + "    " + BLUE.getAsciiCode() + "0" + RESET.getAsciiCode() + "    |\n" +
+                    "|    " + GREEN.getAsciiCode() + "0" + RESET.getAsciiCode() + "    " + GREEN.getAsciiCode() + "0" + RESET.getAsciiCode() + "    |\n" +
                     "|              |\n" +
                     "\\/\\    ^    /\\/ \n" +
                     "   \\  ===  /\n" +
                     "    \\_____/\n" +
                     "     _|_|_\n" +
-                    "    /" + GREEN.getAsciiCode() + "$$$$$" + RESET.getAsciiCode()  + "\\\n" +
-                    "   /|" + GREEN.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "|\\\n" +
-                    " | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n" +
-                    " | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n";
-
-    static final String homerSimpson =
-                    "       .'  `'.\n" +
-                    "      /  _    |\n" +
-                    "      #_/.\\==/.\\\n" +
-                    "     (, \\_/ \\\\_/\n" +
-                    "      |    -' |\n" +
-                    "      \\   '=  /\n" +
-                    "      /`-.__.'\n" +
-                    "   .-'`-.___|__\n" +
-                    "  /" + BLUE.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "\\" + BLUE.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "\\`.\n" +
-                    " /" + BLUE.getAsciiCode() + "$$$$$$" + RESET.getAsciiCode() + "\\" + BLUE.getAsciiCode() + "$$$$$$$$" + RESET.getAsciiCode() + "\\`.";
-
+                    "    /" + YELLOW.getAsciiCode() + "$$$$$" + RESET.getAsciiCode()  + "\\\n" +
+                    "   /|" + YELLOW.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "|\\\n" +
+                    " | |" + YELLOW.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n" +
+                    " | |" + YELLOW.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |\n";
 
 
     public static void main(String[] args) {
         System.out.println(asciiArtOneWithGlasses);
-        System.out.println(asciiArtTwoWithGlasses);
-        System.out.println(asciiArtThreeWithGlasses);
-        System.out.println(asciiArtFourWithoutGlasses);
-        System.out.println(asciiArtFiveWithoutGlasses);
+//        System.out.println(framedAsciiArtOneWithGlasses);
+//        System.out.println(asciiArtTwoWithGlasses);
+//        System.out.println(asciiArtThreeWithGlasses);
+//        System.out.println(asciiArtFourWithoutGlasses);
+//        System.out.println(asciiArtFiveWithoutGlasses);
+//        System.out.println(asciiArtSixWithoutGlasses);
     }
 }
