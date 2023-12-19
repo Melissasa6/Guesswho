@@ -6,7 +6,7 @@ import game.GuessWhoGame;
 public class QuestionHandler implements CommandHandler{
     @Override
     public void handleCommands(GuessWhoGame game, GuessWhoGame.PlayerHandler playerHandler) {
-        GuessWhoGame.PlayerHandler opponent = game.getOpponent(playerHandler);
+        GuessWhoGame.PlayerHandler opponent = playerHandler.getOpponent();
 
         playerHandler.sendMessage(GameMessages.CHOOSE_A_QUESTION);
         String[] question = GameMessages.CHOOSE_A_QUESTION.split("\\n");

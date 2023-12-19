@@ -50,6 +50,7 @@ public class Client {
                     out.newLine();
                     out.flush();
 
+
                     if (line.equalsIgnoreCase("/quit")) {
                         playerSocket.close();
                         System.exit(0);

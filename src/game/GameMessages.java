@@ -41,7 +41,8 @@ public final class GameMessages {
     public static final String FAIL_GUESS = "%s has guessed %s and... Wrong character, try again next turn\n\n";
     public static final String INVALID_COMMAND = "No such command\n";
     public static final String MISS_TURN= "%s loss the turn, wait for the next turn :(\n";
-    public static final String PLAYER_TURN = "%s is playing now\n";
+    public static final String PLAYER_TURN = "It's your turn, ask a question or try to guess.\n";
+    public static final String OPPONENT_TURN = "It's %s's turn.\n";
     public static final String PLAYER_WON = "%s is the WINNER\n\n";
     public static final String PLAYER_LEFT_GAME = "%s has left the game\n";
     public static final String GAME_OVER = "This game is now over. Nice to see you\n";
