@@ -32,7 +32,7 @@ public class Server {
         service = Executors.newSingleThreadExecutor();
         System.out.println(ServerMessages.SERVER_START + port);
 
-        GuessWhoGame game = new GuessWhoGame(this);
+        GuessWhoGame game = new GuessWhoGame();
         service.execute(game);
         System.out.println(ServerMessages.GAME_CREATED);
 

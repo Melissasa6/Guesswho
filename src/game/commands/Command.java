@@ -6,7 +6,7 @@ public enum Command {
     RULES("/rules", new RulesHandler()),
     GUESS ("/guess", new GuessHandler()),
     HIDE ("/hide", new HideHandler()),
-    MY_CARD("mycard", new MyCardHandler()),
+    MY_CARD("/mycard", new MyCardHandler()),
     NOT_FOUND("Command not found", new CommandNotFoundHandler());
 
     private String description;

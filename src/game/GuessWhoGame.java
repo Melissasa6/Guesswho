@@ -19,7 +19,7 @@ public class GuessWhoGame implements Runnable{
     private boolean isGameStarted;
     private boolean isGameFinished;
 
-    public GuessWhoGame(Server server) {
+    public GuessWhoGame() {
         service = Executors.newFixedThreadPool(MAX_PLAYERS);
         players = new ArrayList<>();
         isGameStarted = false;
@@ -31,11 +31,12 @@ public class GuessWhoGame implements Runnable{
         while (!isGameFinished) {
             if (checkIfGameCanStart() && !isGameStarted) {
                 startGame();
-                if (isGameStarted) {
-
-                }
+            }
+            if (isGameStarted) {
+                playRound();
             }
         }
+        finishGame();
     }
 
     public boolean isGameFull(){
@@ -57,7 +58,7 @@ public class GuessWhoGame implements Runnable{
         broadcast(GameMessages.START_GAME);
     }
 
-    public void playTurn() {
+    public void playRound() {
 
     }
 
