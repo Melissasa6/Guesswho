@@ -4,41 +4,40 @@ import game.Ascii_art.Winner;
 import game.commands.Command;
 import server.Server;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class GuessWhoGame implements Runnable{
 
-    private Server server;
     private ExecutorService service;
     private final List<PlayerHandler> players;
     private final int MAX_PLAYERS = 2;
     private boolean isGameStarted;
-    private boolean isGameEnded;
+    private boolean isGameFinished;
 
     public GuessWhoGame(Server server) {
-        this.server = server;
         service = Executors.newFixedThreadPool(MAX_PLAYERS);
-        players = new CopyOnWriteArrayList<>();
+        players = new ArrayList<>();
         isGameStarted = false;
-        isGameEnded = false;
+        isGameFinished = false;
     }
 
     @Override
     public void run() {
-        if (canGameStart()) {
-            isGameStarted = true;
-            while (!isGameEnded) {
-                playTurn();
+        while (!isGameFinished) {
+            if (checkIfGameCanStart() && !isGameStarted) {
+                startGame();
+                System.out.println("here");
+                if (isGameStarted) {
+
+                }
             }
         }
     }
@@ -52,103 +51,18 @@ public class GuessWhoGame implements Runnable{
         service.submit(player);
     }
 
-    public boolean canGameStart() {
-        return isGameFull();
+    private synchronized boolean checkIfGameCanStart() {
+        return isGameFull() && (players.get(0).getName() != null) && (players.get(1).getName() != null);
     }
-
     public void playTurn() {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private void startGame() {
+        this.isGameStarted = true;
+        choosePlayerCards();
+        broadcast(GameMessages.START_GAME);
+    }
 
     private void addPlayer(PlayerHandler playerHandler) {
         players.add(playerHandler);
@@ -156,10 +70,13 @@ public class GuessWhoGame implements Runnable{
         playerHandler.sendMessage(GameMessages.COMMAND_HELP);
     }
 
-    private void broadcast(String name, String message) {
-        players.stream()
-                .filter(handler -> !handler.getName().equals(name))
-                .forEach(handler -> handler.sendMessage(name + ": " + message));
+    public void broadcast(String message) {
+        players.forEach(playerHandler -> playerHandler.sendMessage(message));
+    }
+
+    private void choosePlayerCards() {
+        players.get(0).setChosenCard(new Card("Emily", Colors.BROWN, Colors.BLUE, Colors.BLUE, true, false, false, true ));
+
     }
 
     public void removePlayer(PlayerHandler clientConnectionHandler) {
@@ -173,18 +90,21 @@ public class GuessWhoGame implements Runnable{
                 .findFirst();
     }
 
-    public PlayerHandler getOpponent(PlayerHandler player) {
-        if (players.get(0).equals(player)) {
+    public PlayerHandler getOpponent(PlayerHandler playerHandler) {
+        if (players.get(0).equals(playerHandler)) {
             return players.get(1);
         }
         return players.get(0);
     }
 
+    public void finishGame() {
+        players.forEach(PlayerHandler::quitGame);
+    }
     public class PlayerHandler implements Runnable {
 
         private String name;
         private String message;
-        private Socket playerSocket;
+        public Socket playerSocket;
         private PrintWriter out;
         private Scanner in;
         private List<Card> cardList;
@@ -200,6 +120,7 @@ public class GuessWhoGame implements Runnable{
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+            cardList = BoardFactory.characterList();
         }
 
         @Override
@@ -281,6 +202,7 @@ public class GuessWhoGame implements Runnable{
         private void askName() {
             sendMessage(GameMessages.ENTER_NAME);
             name = in.nextLine();
+            sendMessage("Hi, " + name);
         }
 
         private boolean isCommand(String message) {
@@ -310,13 +232,17 @@ public class GuessWhoGame implements Runnable{
             return in;
         }
 
-        /*private void quitGame() {
+        public void setChosenCard(Card chosenCard) {
+            this.chosenCard = chosenCard;
+        }
+
+        private void quitGame() {
             try {
                 playerSocket.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }*/
+        }
 
     }
 
