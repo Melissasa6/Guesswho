@@ -8,7 +8,7 @@ public final class GameMessages {
     public static final String WAITING_FOR_PLAYER_NAME = "The other player is still choosing a name. Please wait...";
     public static final String CLIENT_ERROR = "Something went wrong with this client's connection. Error: ";
     public static final String PLAYER_JOINED = "Player %s joined the game!\n";
-    public static final String START_GAME = "\n--The GUESS WHO is about to start!--\n";
+    public static final String START_GAME = "\nTHE GAME IS ON!\n";
     public static final String GAME_RULES = """
             ********** Insert game rules here ********
             """;
@@ -18,7 +18,8 @@ public final class GameMessages {
             /help\t\t\t Shows the help menu
             /rules\t\t\t Brings up the rulebook
             /question\t\t Ask the opponent a question
-            /hide <name>\t Hides a character from your board
+            /mycard\t\t\t Check player own character
+            /hide <name>\t Hides one or more characters from your board
             /guess <name>\t Attempt to guess the opponent character
             /quit\t\t\t Quits the game
             """;

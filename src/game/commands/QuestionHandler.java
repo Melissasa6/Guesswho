@@ -12,9 +12,7 @@ public class QuestionHandler implements CommandHandler{
         String[] question = GameMessages.CHOOSE_A_QUESTION.split("\\n");
 
         String messageToSend = question[Integer.parseInt(playerHandler.getIn().nextLine())];
+        playerHandler.sendMessage(messageToSend);
         opponent.sendMessage(playerHandler.getName() + ":" + messageToSend.replaceAll("[^a-zA-Z ?]", ""));
-
-        /*String answer = game.getOpponentInput(playerHandler);
-        playerHandler.sendMessage(answer);*/
     }
 }

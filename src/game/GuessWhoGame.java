@@ -7,10 +7,7 @@ import server.Server;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -34,7 +31,6 @@ public class GuessWhoGame implements Runnable{
         while (!isGameFinished) {
             if (checkIfGameCanStart() && !isGameStarted) {
                 startGame();
-                System.out.println("here");
                 if (isGameStarted) {
 
                 }
@@ -54,14 +50,15 @@ public class GuessWhoGame implements Runnable{
     private synchronized boolean checkIfGameCanStart() {
         return isGameFull() && (players.get(0).getName() != null) && (players.get(1).getName() != null);
     }
-    public void playTurn() {
-
+    private void startGame() {
+        System.out.println("Game started...");
+        this.isGameStarted = true;
+        choosePlayerCard();
+        broadcast(GameMessages.START_GAME);
     }
 
-    private void startGame() {
-        this.isGameStarted = true;
-        choosePlayerCards();
-        broadcast(GameMessages.START_GAME);
+    public void playTurn() {
+
     }
 
     private void addPlayer(PlayerHandler playerHandler) {
@@ -74,14 +71,16 @@ public class GuessWhoGame implements Runnable{
         players.forEach(playerHandler -> playerHandler.sendMessage(message));
     }
 
-    private void choosePlayerCards() {
-        players.get(0).setChosenCard(new Card("Emily", Colors.BROWN, Colors.BLUE, Colors.BLUE, true, false, false, true ));
-
+    private void choosePlayerCard() {
+        Random rand = new Random();
+        PlayerHandler player1 = players.get(0);
+        PlayerHandler player2 = players.get(1);
+        player1.setChosenCard(player1.cardList.get(rand.nextInt(player1.cardList.size() - 1)));
+        player2.setChosenCard(player2.cardList.get(rand.nextInt(player2.cardList.size() - 1)));
     }
 
     public void removePlayer(PlayerHandler clientConnectionHandler) {
         players.remove(clientConnectionHandler);
-
     }
 
     public Optional<PlayerHandler> getClientByName(String name) {
@@ -100,6 +99,7 @@ public class GuessWhoGame implements Runnable{
     public void finishGame() {
         players.forEach(PlayerHandler::quitGame);
     }
+
     public class PlayerHandler implements Runnable {
 
         private String name;
@@ -109,8 +109,6 @@ public class GuessWhoGame implements Runnable{
         private Scanner in;
         private List<Card> cardList;
         private Card chosenCard;
-
-
 
         public PlayerHandler(Socket playerSocket) {
             this.playerSocket = playerSocket;
@@ -138,7 +136,6 @@ public class GuessWhoGame implements Runnable{
             }
             while (in.hasNext()) {
                 try {
-                    // BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
                     message = in.nextLine();
                     if (isCommand(message)) {
@@ -150,7 +147,7 @@ public class GuessWhoGame implements Runnable{
                         // continue;
                     }
 
-                    //broadcast(name, message);
+                    sendMessageToOpponent(getOpponent(this), message);
 
                 } catch (IOException e) {
                     System.err.println(GameMessages.CLIENT_ERROR + e.getMessage());
@@ -158,44 +155,15 @@ public class GuessWhoGame implements Runnable{
                 }
 
             }
-            /*players.add(this);
-            sendMessage(Winner.TITLE);
-            sendMessage(GameMessages.WELCOME_MESSAGE);
-            name = askName();
-
-            sendMessage(GameMessages.COMMAND_HELP);
-
-            if (players.size() < MAX_PLAYERS) {
-                sendMessage(GameMessages.WAITING_FOR_PLAYER_JOIN);
-            }
-
-            while (in.hasNext()) {
-                try {
-                    // BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-
-                    message = in.nextLine();
-                    if (isCommand(message)) {
-                        dealWithCommand(message);
-                        continue;
-                    }
-                    if (message.equals("/mes")) {
-                        sendMessage("Empty message");
-                        continue;
-                    }
-
-                    broadcast(message);
-
-                } catch (IOException e) {
-                    System.err.println(GameMessages.CLIENT_ERROR + e.getMessage());
-                    removePlayer(this);
-                } finally {
-                    removePlayer(this);
-                }
-            }*/
         }
 
         public void sendMessage(String message) {
             out.println(message);
+            out.flush();
+        }
+
+        public void sendMessageToOpponent(PlayerHandler opponent, String message) {
+            opponent.out.println(name + ": " + message);
             out.flush();
         }
 
@@ -243,7 +211,5 @@ public class GuessWhoGame implements Runnable{
                 throw new RuntimeException(e);
             }
         }
-
     }
-
 }
