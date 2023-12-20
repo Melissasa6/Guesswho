@@ -27,7 +27,7 @@ public final class GameMessages {
             """;
     public static final String COMMAND_HELP = """
             \nList of available commands:
-            /help\t\t\t Shogitws the help menu
+            /help\t\t\t Shows the help menu
             /rules\t\t\t Brings up the rulebook
             /board\t\t\t Shows the current board state
             /mycard\t\t\t Check player own character
