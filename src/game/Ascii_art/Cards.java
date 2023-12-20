@@ -1,6 +1,7 @@
 package game.Ascii_art;
 import static game.Ascii_art.Colors.*;
 
+// TODO - Create ascii art for turned card
 
 public class Cards {
     public final String asciiArtGlasses = "⌐■-■";
@@ -20,6 +21,7 @@ public class Cards {
                     "|    /|" + GREEN.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "|\\     |\n" +
                     "|  | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "|  | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
+                    "|      Emily       |\n" +
                     "+------------------+\n";
 
     private static final String homerAsciiArt =
@@ -37,6 +39,7 @@ public class Cards {
                     "|    /|" + GRAY.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "|\\     |\n" +
                     "|  | |" + GRAY.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "|  | |" + GRAY.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
+                    "|      Homer       |\n" +
                     "+------------------+\n";
 
     private static final String miaAsciiArt =
@@ -54,6 +57,7 @@ public class Cards {
                     "|    /|" + PINK.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "|\\     |\n" +
                     "|  | |" + PINK.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "|  | |" + PINK.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
+                    "|       Mia        |\n" +
                     "+------------------+\n";
 
     private static final String henryAsciiArt =
@@ -71,6 +75,7 @@ public class Cards {
                     "|    /|" + GREEN.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "|\\     |\n" +
                     "|  | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "|  | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
+                    "|      Henry       |\n" +
                     "+------------------+\n";
 
     private static final String daisyAsciiArt =
@@ -88,6 +93,7 @@ public class Cards {
                     "|    /|" + BROWN.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "|\\     |\n" +
                     "|  | |" + BROWN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "|  | |" + BROWN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
+                    "|      Daisy       |\n" +
                     "+------------------+\n";
 
     private static final String leviAsciiArt =
@@ -105,6 +111,7 @@ public class Cards {
                     "|    /|" + BLUE.getAsciiCode() + "$$$$$" + RESET.getAsciiCode() + "|\\     |\n" +
                     "|  | |" + BLUE.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "|  | |" + BLUE.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
+                    "|      Levi        |\n" +
                     "+------------------+\n";
 
 
@@ -125,5 +132,14 @@ public class Cards {
     }
     public static String getLeviAsciiArt() {
         return leviAsciiArt;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(emilyAsciiArt);
+        System.out.println(homerAsciiArt);
+        System.out.println(miaAsciiArt);
+        System.out.println(henryAsciiArt);
+        System.out.println(daisyAsciiArt);
+        System.out.println(leviAsciiArt);
     }
 }
