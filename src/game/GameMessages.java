@@ -1,5 +1,7 @@
 package game;
 
+import static game.Ascii_art.Colors.*;
+
 public final class GameMessages {
 
     public static final String WELCOME_MESSAGE = "~~ Welcome to GUESS WHO! Are you ready? ~~\n";
@@ -7,20 +9,19 @@ public final class GameMessages {
     public static final String WAITING_FOR_PLAYER_JOIN = "Waiting for another player to join...";
     public static final String WAITING_FOR_PLAYER_NAME = "The other player is still choosing a name. Please wait...";
     public static final String CLIENT_ERROR = "Something went wrong with this client's connection. Error: ";
-    public static final String PLAYER_JOINED = "Player %s joined the game!\n";
     public static final String START_GAME = "\nTHE GAME IS ON!\n";
+    public static final String PLAYER_CARD = YELLOW.getAsciiCode() + "Your character is: %s" + RESET.getAsciiCode();
     public static final String GAME_RULES = """
             \nList of rules:
             1 - Two players are required to play the game
-            2 - Each player takes a mystery character card from a set of predefined character cards. These cards represent the mystery characters.
-            3 - In first round each player must use yes or no questions to narrow down the possibilities to try to figure out the other player's mystery character
-            4 - In the next rounds they can choose ask a new question or try to guess the opponent's mystery character
-            5 - Each player must eliminate characters from the board based on the answers
-            6 - If the guess is incorrect, that player loses the game
+            2 - Each player gets a random mystery character card, which the opponent will have to guess.
+            3 - In the first round each player must use yes or no questions to narrow down the possibilities to try to figure out the other player's mystery character
+            4 - In the next rounds, they can choose to ask a new question or try to guess the opponent's mystery character
+            5 - Each player can eliminate characters from the board based on the answers
+            6 - If a player chooses to guess and the answer is incorrect, that player loses the game
             7 - The first player to correctly guess the opponent's mystery character automatically wins the game
             8 - In the end, players can choose to play another round or quit the game
             """;
-
     public static final String COMMAND_HELP = """
             \nList of available commands:
             /help\t\t\t Shows the help menu
@@ -46,8 +47,8 @@ public final class GameMessages {
             "8 Does he wear glasses?\n" +
             "9 Are his eyes blue?\n" +
             "10 Are his eyes brown?\n";
-    public static final String INVALID_QUESTION = " Please choose a question:\n";
-    public static final String FAIL_GUESS = "%s has guessed %s and... Wrong character, try again next turn\n\n";
+    public static final String INVALID_QUESTION = "Please choose a valid question.\n";
+    public static final String FAIL_GUESS = "%s has guessed %s and... Wrong character, try again next turn\n";
     public static final String INVALID_COMMAND = "No such command\n";
     public static final String MISS_TURN= "%s loss the turn, wait for the next turn :(\n";
     public static final String PLAYER_TURN = "It's your turn, ask a question or try to guess.\n";

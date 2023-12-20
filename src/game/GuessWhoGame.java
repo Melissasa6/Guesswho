@@ -56,6 +56,9 @@ public class GuessWhoGame implements Runnable{
         System.out.println("Game started...");
         this.isGameStarted = true;
         choosePlayerCard();
+        for (PlayerHandler player : players) {
+            player.sendMessage(String.format(GameMessages.PLAYER_CARD, player.getChosenCard().getCharacterName().toUpperCase()));
+        }
         broadcast(GameMessages.START_GAME);
     }
 
