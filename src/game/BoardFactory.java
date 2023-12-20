@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 import static game.Ascii_art.Colors.*;
 
+/**
+ * Is the factory of the cards
+ */
 public final class BoardFactory {
 
     private static final List<Card> CARD_LIST = Arrays.asList(
@@ -17,6 +20,9 @@ public final class BoardFactory {
             new Card("Levi", BROWN, GRAY, BLUE, false, Cards.getLeviAsciiArt())
     );
 
+    /**
+     * Method to return the list of cards
+     */
     public static List<Card> characterList() {
 
         return CARD_LIST;

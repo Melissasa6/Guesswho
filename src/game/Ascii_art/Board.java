@@ -4,30 +4,42 @@ import game.Card;
 import java.util.List;
 
 public class Board {
+
+
+    /**
+     * Split each card's ASCII art into lines
+     * Print each line of the ASCII arts side by side
+     */
     public static String printAllAsciiArt(List<Card> cardList) {
-        // Split each card's ASCII art into lines
+
         List<String[]> cardLines = getCardLines(cardList);
 
-        // Print each line of the ASCII arts side by side
+
         return printHorizontalArt(cardLines);
     }
 
+    /**
+     *Collect lines of each card's ASCII arts
+     */
     private static List<String[]> getCardLines(List<Card> cards) {
-        // Collect lines of each card's ASCII art
         return cards.stream()
                 .map(card -> card.getAsciiArt().split("\n"))
                 .toList();
     }
 
+    /**
+     * Get the number of the lines in the ASCII arts
+     * Print each line of the ASCII arts side by side
+     * Print the corresponding line or a separator if it's shorter
+     * Move to the next line after printing each row
+     */
     private static String printHorizontalArt(List<String[]> cardLines) {
         String board = "";
-        // Get the number of lines in the ASCII arts
         int numLines = cardLines.get(0).length;
 
-        // Print each line of the ASCII arts side by side
         for (int i = 0; i < numLines; i++) {
             for (String[] lines : cardLines) {
-                // Print the corresponding line or a separator if it's shorter
+
                 if (i < lines.length) {
                     board = board.concat(lines[i]);
                 } else {

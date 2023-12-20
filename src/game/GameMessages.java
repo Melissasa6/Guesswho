@@ -2,6 +2,10 @@ package game;
 
 import static game.Ascii_art.Colors.*;
 
+
+/**
+ * Messages used during the game
+ */
 public final class GameMessages {
 
     public static final String WELCOME_MESSAGE = "~~ Welcome to GUESS WHO! Are you ready? ~~\n";

@@ -9,6 +9,7 @@ import java.util.concurrent.Executors;
 
 public class Server {
 
+    /** Main method of the class Server...*/
     public static void main(String[] args) {
         Server server = new Server();
         try {
@@ -23,10 +24,18 @@ public class Server {
     //private List<GuessWhoGame> gameList;
     private static final int PORT = 8080;
 
+    /**
+     * Constructor method
+     */
     public Server() {
         //gameList = new LinkedList<>();
     }
 
+    /**
+     * Starts the server, creating a server socket and accepting players
+     * @param port The port number on which the server will listen for incomming messages
+     * @throws IOException if an error occurs while creating the server socket
+     */
     public void start(int port) throws IOException {
         serverSocket = new ServerSocket(port);
         service = Executors.newSingleThreadExecutor();
