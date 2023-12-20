@@ -224,6 +224,10 @@ public class GuessWhoGame implements Runnable{
             return in;
         }
 
+        public List<Card> getCardList() {
+            return cardList;
+        }
+
         public void setChosenCard(Card chosenCard) {
             this.chosenCard = chosenCard;
         }
