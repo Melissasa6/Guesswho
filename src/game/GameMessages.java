@@ -12,19 +12,19 @@ public final class GameMessages {
     public static final String START_GAME = "\nTHE GAME IS ON!\n";
     public static final String PLAYER_CARD = YELLOW.getAsciiCode() + "Your character is: %s" + RESET.getAsciiCode();
     public static final String GAME_RULES = """
-            \nList of rules:
+             \\nList of rules:
             1 - Two players are required to play the game
-            2 - Each player gets a random mystery character card, which the opponent will have to guess.
-            3 - In the first round each player must use yes or no questions to narrow down the possibilities to try to figure out the other player's mystery character
-            4 - In the next rounds, they can choose to ask a new question or try to guess the opponent's mystery character
-            5 - Each player can eliminate characters from the board based on the answers
-            6 - If a player chooses to guess and the answer is incorrect, that player loses the game
+            2 - Each player takes a mystery character card from a set of predefined character cards. These cards represent the mystery characters.
+            3 - In first round each player must use yes or no questions to narrow down the possibilities to try to figure out the other player's mystery character
+            4 - In the next rounds they can choose ask a new question or try to guess the opponent's mystery character
+            5 - Each player must eliminate characters from the board based on the answers
+            6 - If the guess is incorrect, that player loses the game
             7 - The first player to correctly guess the opponent's mystery character automatically wins the game
             8 - In the end, players can choose to play another round or quit the game
             """;
     public static final String COMMAND_HELP = """
             \nList of available commands:
-            /help\t\t\t Shows the help menu
+            /help\t\t\t Shogitws the help menu
             /rules\t\t\t Brings up the rulebook
             /board\t\t\t Shows the current board state
             /mycard\t\t\t Check player own character
@@ -33,6 +33,7 @@ public final class GameMessages {
             /guess <name>\t Attempt to guess the opponent character
             /quit\t\t\t Quits the game
             """;
+
     public static final String THIS_IS_THE_CHARACTER = "This is the character that you will try to guess\n";
     public static final String WAITING_PLAYER_QUESTION= "We're waiting for %s to ask a question...\n";
     public static final String PLAYER_GUESS = "Please, choose a character (if you miss, you lose): ";
