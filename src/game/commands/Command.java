@@ -1,12 +1,13 @@
 package game.commands;
 
 public enum Command {
-    QUESTION("/question", new QuestionHandler()),
     HELP("/help", new HelpHandler()),
     RULES("/rules", new RulesHandler()),
-    GUESS ("/guess", new GuessHandler()),
-    HIDE ("/hide", new HideHandler()),
+    BOARD ("/board", new BoardHandler()),
     MY_CARD("/mycard", new MyCardHandler()),
+    HIDE ("/hide", new HideHandler()),
+    QUESTION("/question", new QuestionHandler()),
+    GUESS ("/guess", new GuessHandler()),
     NOT_FOUND("Command not found", new CommandNotFoundHandler());
 
     private String description;

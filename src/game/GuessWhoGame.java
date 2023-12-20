@@ -2,7 +2,6 @@ package game;
 
 import game.Ascii_art.Winner;
 import game.commands.Command;
-import server.Server;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,12 +17,14 @@ public class GuessWhoGame implements Runnable{
     private final int MAX_PLAYERS = 2;
     private boolean isGameStarted;
     private boolean isGameFinished;
+    private int round;
 
     public GuessWhoGame() {
         service = Executors.newFixedThreadPool(MAX_PLAYERS);
         players = new ArrayList<>();
         isGameStarted = false;
         isGameFinished = false;
+        round = 0;
     }
 
     @Override
@@ -55,11 +56,34 @@ public class GuessWhoGame implements Runnable{
         System.out.println("Game started...");
         this.isGameStarted = true;
         choosePlayerCard();
+        for (PlayerHandler player : players) {
+            player.sendMessage(String.format(GameMessages.PLAYER_CARD, player.getChosenCard().getCharacterName().toUpperCase()));
+        }
         broadcast(GameMessages.START_GAME);
     }
 
     public void playRound() {
+        round++;
+        broadcast("~~ ROUND " + round + " ~~");
+        for (PlayerHandler player : players) {
+            PlayerHandler opponent = player.getOpponent();
 
+            player.sendMessage(GameMessages.PLAYER_TURN);
+            opponent.sendMessage(String.format(GameMessages.OPPONENT_TURN, player.getName()));
+
+            while (true) {
+                if (player.getMessage() == null || opponent.getMessage() == null) {
+                    continue;
+                }
+                String answer;
+                if (player.getMessage().equals("/question") || player.getMessage().equals("/guess")) {
+                    answer = opponent.getMessage();
+                    if (answer.equalsIgnoreCase("no") || answer.equalsIgnoreCase("yes")) {
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     private void addPlayer(PlayerHandler playerHandler) {
@@ -88,13 +112,6 @@ public class GuessWhoGame implements Runnable{
         return players.stream()
                 .filter(clientConnectionHandler -> clientConnectionHandler.getName().equalsIgnoreCase(name))
                 .findFirst();
-    }
-
-    public PlayerHandler getOpponent(PlayerHandler playerHandler) {
-        if (players.get(0).equals(playerHandler)) {
-            return players.get(1);
-        }
-        return players.get(0);
     }
 
     public void finishGame() {
@@ -148,7 +165,7 @@ public class GuessWhoGame implements Runnable{
                         // continue;
                     }
 
-                    sendMessageToOpponent(getOpponent(this), message);
+                    sendMessageToOpponent(message);
 
                 } catch (IOException e) {
                     System.err.println(GameMessages.CLIENT_ERROR + e.getMessage());
@@ -163,8 +180,14 @@ public class GuessWhoGame implements Runnable{
             out.flush();
         }
 
-        public void sendMessageToOpponent(PlayerHandler opponent, String message) {
-            opponent.out.println(name + ": " + message);
+        public PlayerHandler getOpponent() {
+            if (players.get(0).equals(this)) {
+                return players.get(1);
+            }
+            return players.get(0);
+        }
+        public void sendMessageToOpponent(String message) {
+            getOpponent().out.println(name + ": " + message);
             out.flush();
         }
 

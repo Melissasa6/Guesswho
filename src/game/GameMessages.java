@@ -1,5 +1,7 @@
 package game;
 
+import static game.Ascii_art.Colors.*;
+
 public final class GameMessages {
 
     public static final String WELCOME_MESSAGE = "~~ Welcome to GUESS WHO! Are you ready? ~~\n";
@@ -7,8 +9,8 @@ public final class GameMessages {
     public static final String WAITING_FOR_PLAYER_JOIN = "Waiting for another player to join...";
     public static final String WAITING_FOR_PLAYER_NAME = "The other player is still choosing a name. Please wait...";
     public static final String CLIENT_ERROR = "Something went wrong with this client's connection. Error: ";
-    public static final String PLAYER_JOINED = "Player %s joined the game!\n";
     public static final String START_GAME = "\nTHE GAME IS ON!\n";
+    public static final String PLAYER_CARD = YELLOW.getAsciiCode() + "Your character is: %s" + RESET.getAsciiCode();
     public static final String GAME_RULES = """
              \\nList of rules:
             1 - Two players are required to play the game
@@ -20,15 +22,14 @@ public final class GameMessages {
             7 - The first player to correctly guess the opponent's mystery character automatically wins the game
             8 - In the end, players can choose to play another round or quit the game
             """;
-
-
     public static final String COMMAND_HELP = """
             \nList of available commands:
             /help\t\t\t Shogitws the help menu
             /rules\t\t\t Brings up the rulebook
-            /question\t\t Ask the opponent a question
+            /board\t\t\t Shows the current board state
             /mycard\t\t\t Check player own character
             /hide <name>\t Hides one or more characters from your board
+            /question\t\t Ask the opponent a question
             /guess <name>\t Attempt to guess the opponent character
             /quit\t\t\t Quits the game
             """;
@@ -47,11 +48,12 @@ public final class GameMessages {
             "8 Does he wear glasses?\n" +
             "9 Are his eyes blue?\n" +
             "10 Are his eyes brown?\n";
-    public static final String INVALID_QUESTION = " Please choose a question:\n";
-    public static final String FAIL_GUESS = "%s has guessed %s and... Wrong character, try again next turn\n\n";
+    public static final String INVALID_QUESTION = "Please choose a valid question.\n";
+    public static final String FAIL_GUESS = "%s has guessed %s and... Wrong character, try again next turn\n";
     public static final String INVALID_COMMAND = "No such command\n";
     public static final String MISS_TURN= "%s loss the turn, wait for the next turn :(\n";
-    public static final String PLAYER_TURN = "%s is playing now\n";
+    public static final String PLAYER_TURN = "It's your turn, ask a question or try to guess.\n";
+    public static final String OPPONENT_TURN = "It's %s's turn.\n";
     public static final String PLAYER_WON = "%s is the WINNER\n\n";
     public static final String PLAYER_LEFT_GAME = "%s has left the game\n";
     public static final String GAME_OVER = "This game is now over. Nice to see you\n";
