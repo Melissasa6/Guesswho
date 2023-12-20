@@ -4,7 +4,24 @@ import static game.Ascii_art.Colors.*;
 // TODO - Create ascii art for turned card
 
 public class Cards {
-    public final String asciiArtGlasses = "⌐■-■";
+
+    private static final String hiddenAsciiArt =
+            "+------------------+\n" +
+            "| x               x|\n" +
+            "|  x             x |\n" +
+            "|   x           x  |\n" +
+            "|    x         x   |\n" +
+            "|     x       x    |\n" +
+            "|      x     x     |\n" +
+            "|       x   x      |\n" +
+            "|        x x       |\n" +
+            "|         x        |\n" +
+            "|        x x       |\n" +
+            "|       x   x      |\n" +
+            "|      x     x     |\n" +
+            "|     x       x    |\n" +
+            "|    x         x   |\n" +
+            "+------------------+\n";
 
     private static final String emilyAsciiArt =
             "+------------------+\n" +
@@ -115,6 +132,9 @@ public class Cards {
                     "+------------------+\n";
 
 
+    public static String getHiddenAsciiArt() {
+        return hiddenAsciiArt;
+    }
     public static String getEmilyAsciiArt() {
         return emilyAsciiArt;
     }
@@ -134,12 +154,4 @@ public class Cards {
         return leviAsciiArt;
     }
 
-    public static void main(String[] args) {
-        System.out.println(emilyAsciiArt);
-        System.out.println(homerAsciiArt);
-        System.out.println(miaAsciiArt);
-        System.out.println(henryAsciiArt);
-        System.out.println(daisyAsciiArt);
-        System.out.println(leviAsciiArt);
-    }
 }
