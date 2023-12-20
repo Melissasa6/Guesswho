@@ -1,5 +1,9 @@
 package game.Ascii_art;
 
+/**
+ * Colors that are available to be used by the cards to create the characters
+ */
+
 public enum Colors {
 
     RESET("", "\u001B[0m"),
@@ -15,6 +19,12 @@ public enum Colors {
     private final String colour;
     private final String asciiCode;
 
+    /**
+     * Method constructor of the enum colors that accept two arguments
+     * @param colour represents a human-readable color name
+     * @param acsColour represents that colour in the console
+     */
+
     Colors(String colour, String acsColour){
         this.colour = colour;
         this.asciiCode = acsColour;
@@ -24,6 +34,10 @@ public enum Colors {
         return asciiCode;
     }
 
+    /**
+     *
+     * @return the human-readable color name
+     */
     @Override
     public String toString(){
         return this.colour;
