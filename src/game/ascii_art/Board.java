@@ -1,4 +1,4 @@
-package game.Ascii_art;
+package game.ascii_art;
 
 import game.Card;
 import java.util.List;

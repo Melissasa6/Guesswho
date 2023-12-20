@@ -1,10 +1,10 @@
 package game;
 
-import game.Ascii_art.Cards;
+import game.ascii_art.Cards;
 
 import java.util.Arrays;
 import java.util.List;
-import static game.Ascii_art.Colors.*;
+import static game.ascii_art.Colors.*;
 
 /**
  * Is the factory of the cards

@@ -1,6 +1,6 @@
 package game;
 
-import static game.Ascii_art.Colors.*;
+import static game.ascii_art.Colors.*;
 
 
 /**

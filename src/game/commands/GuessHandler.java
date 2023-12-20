@@ -1,6 +1,6 @@
 package game.commands;
 
-import game.Ascii_art.Titles;
+import game.ascii_art.Titles;
 import game.GameMessages;
 import game.GuessWhoGame;
 

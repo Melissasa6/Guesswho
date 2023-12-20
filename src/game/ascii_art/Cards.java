@@ -1,5 +1,5 @@
-package game.Ascii_art;
-import static game.Ascii_art.Colors.*;
+package game.ascii_art;
+import static game.ascii_art.Colors.*;
 
 // TODO - Create ascii art for turned card
 

@@ -1,7 +1,7 @@
 package game;
 
-import game.Ascii_art.Board;
-import game.Ascii_art.Titles;
+import game.ascii_art.Board;
+import game.ascii_art.Titles;
 import game.commands.Command;
 
 import java.io.IOException;
@@ -87,7 +87,7 @@ public class GuessWhoGame implements Runnable{
     }
 
     /**
-     * Plays a round og the game, communicating with the players
+     * Plays a round of the game, communicating with the players
      */
     public synchronized void playRound() {
         round++;

@@ -1,6 +1,6 @@
 package game.commands;
 
-import game.Ascii_art.Board;
+import game.ascii_art.Board;
 import game.GuessWhoGame;
 
 

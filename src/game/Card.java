@@ -1,6 +1,6 @@
 package game;
 
-import game.Ascii_art.Colors;
+import game.ascii_art.Colors;
 
 public class Card {
 

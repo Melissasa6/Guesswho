@@ -1,4 +1,4 @@
-package game.Ascii_art;
+package game.ascii_art;
 
 public class Titles {
     public final static String WINNER= """

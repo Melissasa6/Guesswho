@@ -1,4 +1,4 @@
-package game.Ascii_art;
+package game.ascii_art;
 
 /**
  * Colors that are available to be used by the cards to create the characters
