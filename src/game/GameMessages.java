@@ -51,6 +51,7 @@ public final class GameMessages {
             "8 Are their eyes blue?\n" +
             "9 Are their eyes brown?\n" +
             "10 Is their shirt green?\n";
+
     public static final String INVALID_QUESTION = "Please choose a valid question.\n";
     public static final String FAIL_GUESS = "%s has guessed %s and... Wrong character, try again next turn\n";
     public static final String INVALID_COMMAND = "No such command\n";
