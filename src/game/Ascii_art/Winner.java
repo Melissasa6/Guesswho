@@ -1,16 +1,23 @@
 package game.Ascii_art;
 
 public class Winner {
-    public final static String BIG_WINNER= "\n" +
-
-            "I8,         8        ,8I  88 888b      88 888b      88 88888888888 88888888ba \n" +
-            "`8b        d8b        d8' 88 8888b     88 8888b     88 88          88      8b \n" +
-            " '8,      ,8'8,      ,8'  88 88 `8b    88 88 `8b    88 88          88      ,8P \n" +
-            "  'Y8     8P Y8     8P    88 88  `8b   88 88  `8b   88 88aaaaa     88aaaaaa8P' \n" +
-            "   `8b   d8' `8b   d8'    88 88   `8b  88 88   `8b  88 88aaaaa     88aaaaa88' \n" +
-            "    `8a a8'   `8a a8'     88 88    `8b 88 88    `8b 88 88          88    `8b \n" +
-            "     `8a8'     `8a8'      88 88     `8888 88     `8888 88          88     `8b \n" +
-            "      `8'       `8'       88 88      `888 88      `888 88888888888 88      `8b \n";
+    public final static String WINNER= """
+            \u001B[34mYYYYYYY       YYYYYYY                                                                                iiii                    !!!\s
+            Y:::::Y       Y:::::Y                                                                               i::::i                  !!:!!
+            Y:::::Y       Y:::::Y                                                                                iiii                   !:::!
+            Y::::::Y     Y::::::Y                                                                                                       !:::!
+            YYY:::::Y   Y:::::YYYooooooooooo   uuuuuu    uuuuuu       wwwwwww           wwwww           wwwwwwwiiiiiiinnnn  nnnnnnnn    !:::!
+               Y:::::Y Y:::::Y oo:::::::::::oo u::::u    u::::u        w:::::w         w:::::w         w:::::w i:::::in:::nn::::::::nn  !:::!
+                Y:::::Y:::::Y o:::::::::::::::ou::::u    u::::u         w:::::w       w:::::::w       w:::::w   i::::in::::::::::::::nn !:::!
+                 Y:::::::::Y  o:::::ooooo:::::ou::::u    u::::u          w:::::w     w:::::::::w     w:::::w    i::::inn:::::::::::::::n!:::!
+                  Y:::::::Y   o::::o     o::::ou::::u    u::::u           w:::::w   w:::::w:::::w   w:::::w     i::::i  n:::::nnnn:::::n!:::!
+                   Y:::::Y    o::::o     o::::ou::::u    u::::u            w:::::w w:::::w w:::::w w:::::w      i::::i  n::::n    n::::n!:::!
+                   Y:::::Y    o::::o     o::::ou::::u    u::::u             w:::::w:::::w   w:::::w:::::w       i::::i  n::::n    n::::n!!:!!
+                   Y:::::Y    o::::o     o::::ou:::::uuuu:::::u              w:::::::::w     w:::::::::w        i::::i  n::::n    n::::n !!!\s
+                   Y:::::Y    o:::::ooooo:::::ou:::::::::::::::uu             w:::::::w       w:::::::w        i::::::i n::::n    n::::n    \s
+                YYYY:::::YYYY o:::::::::::::::o u:::::::::::::::u              w:::::w         w:::::w         i::::::i n::::n    n::::n !!!\s
+                Y:::::::::::Y  oo:::::::::::oo   uu::::::::uu:::u               w:::w           w:::w          i::::::i n::::n    n::::n!!:!!
+                YYYYYYYYYYYYY    ooooooooooo       uuuuuuuu  uuuu                www             www           iiiiiiii nnnnnn    nnnnnn !!!\s""";
 
     public final static String TITLE = """
                                                                                                                                                     \s
@@ -35,4 +42,29 @@ public class Winner {
                                                        +#%%%%%%#######%:################%%%%%%##.#%      %#.                                        \s
                                                                                                    +%%#%´\u001B[0m                                           \s
             """;
+
+     public static final String LOSER= """
+                                                                                                                                            \s
+             \033[1;31mYYYYYYY       YYYYYYY                                     lllllll                                            tttt           !!!\s
+             Y:::::Y       Y:::::Y                                     l:::::l                                         ttt:::t          !!:!!
+             Y:::::Y       Y:::::Y                                     l:::::l                                         t:::::t          !:::!
+             Y::::::Y     Y::::::Y                                     l:::::l                                         t:::::t          !:::!
+             YYY:::::Y   Y:::::YYYooooooooooo   uuuuuu    uuuuuu        l::::l    ooooooooooo       ssssssssss   ttttttt:::::ttttttt    !:::!
+                Y:::::Y Y:::::Y oo:::::::::::oo u::::u    u::::u        l::::l  oo:::::::::::oo   ss::::::::::s  t:::::::::::::::::t    !:::!
+                 Y:::::Y:::::Y o:::::::::::::::ou::::u    u::::u        l::::l o:::::::::::::::oss:::::::::::::s t:::::::::::::::::t    !:::!
+                  Y:::::::::Y  o:::::ooooo:::::ou::::u    u::::u        l::::l o:::::ooooo:::::os::::::ssss:::::stttttt:::::::tttttt    !:::!
+                   Y:::::::Y   o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o s:::::s  ssssss       t:::::t          !:::!
+                    Y:::::Y    o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o   s::::::s            t:::::t          !:::!
+                    Y:::::Y    o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o      s::::::s         t:::::t          !!:!!
+                    Y:::::Y    o::::o     o::::ou:::::uuuu:::::u        l::::l o::::o     o::::ossssss   s:::::s       t:::::t    tttttt !!!\s
+                    Y:::::Y    o:::::ooooo:::::ou:::::::::::::::uu     l::::::lo:::::ooooo:::::os:::::ssss::::::s      t::::::tttt:::::t    \s
+                 YYYY:::::YYYY o:::::::::::::::o u:::::::::::::::u     l::::::lo:::::::::::::::os::::::::::::::s       tt::::::::::::::t !!!\s
+                 Y:::::::::::Y  oo:::::::::::oo   uu::::::::uu:::u     l::::::l oo:::::::::::oo  s:::::::::::ss          tt:::::::::::tt!!:!!
+                 YYYYYYYYYYYYY    ooooooooooo       uuuuuuuu  uuuu     llllllll   ooooooooooo     sssssssssss              ttttttttttt   !!!
+             """;
+
+    public static void main(String[] args) {
+        System.out.println(WINNER);
+        System.out.println(LOOSER);
+    }
 }
