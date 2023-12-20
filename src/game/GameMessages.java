@@ -27,7 +27,7 @@ public final class GameMessages {
             """;
     public static final String COMMAND_HELP = """
             \nList of available commands:
-            /help\t\t\t Shogitws the help menu
+            /help\t\t\t Shows the help menu
             /rules\t\t\t Brings up the rulebook
             /board\t\t\t Shows the current board state
             /mycard\t\t\t Check player own character
@@ -42,15 +42,16 @@ public final class GameMessages {
     public static final String PLAYER_GUESS = "Please, choose a character (if you miss, you lose): ";
     public static final String CHOOSE_A_QUESTION = "Please choose one question:\n"+
             "1 Is he a man?\n" +
-            "2 Is she a women?\n" +
-            "3 Is he old?\n" +
-            "4 Is his hair blond?\n" +
-            "5 Is his hair brown?\n" +
-            "6 Is he bold?\n" +
-            "7 Does he have a hat?\n" +
-            "8 Does he wear glasses?\n" +
-            "9 Are his eyes blue?\n" +
-            "10 Are his eyes brown?\n";
+            "2 Is she a woman?\n" +
+            "3 Are they old?\n" +
+            "4 Is their hair blond?\n" +
+            "5 Is their hair brown?\n" +
+            "6 Is their hair red?\n" +
+            "7 Do they wear glasses?\n" +
+            "8 Are their eyes blue?\n" +
+            "9 Are their eyes brown?\n" +
+            "10 Is their shirt green?\n";
+
     public static final String INVALID_QUESTION = "Please choose a valid question.\n";
     public static final String FAIL_GUESS = "%s has guessed %s and... Wrong character, try again next turn\n";
     public static final String INVALID_COMMAND = "No such command\n";
