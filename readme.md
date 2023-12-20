@@ -1,4 +1,4 @@
-<img src="![logo.png](https://github.com/mtsluis/guesswho/blob/main/src/images/logo.png?raw=true)">
+![logo](https://github.com/mtsluis/guesswho/assets/151209805/997a8043-c4f8-429b-a5be-b7d6234fefa8)
 
 <h1 align="center"> Guess Who Game </h1>
 Welcome to the Guess Who Game implemented in Java!
