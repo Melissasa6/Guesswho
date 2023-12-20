@@ -9,7 +9,7 @@ public class Card {
     private final Colors eyeColor;
     private final Colors shirtColor;
     private final boolean glasses;
-    private final String asciiArt;
+    private String asciiArt;
 
     public Card(String characterName, Colors hairColor, Colors eyeColor, Colors shirtColor, boolean glasses, String asciiArt){
         this.characterName = characterName;
@@ -35,8 +35,11 @@ public class Card {
     public boolean getGlasses(){
         return glasses;
     }
-
     public String getAsciiArt() {
         return asciiArt;
+    }
+
+    public void setAsciiArt(String asciiArt) {
+        this.asciiArt = asciiArt;
     }
 }

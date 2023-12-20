@@ -1,24 +1,15 @@
 package game.Ascii_art;
 
-import game.BoardFactory;
 import game.Card;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Board {
-
-//    private static List<Cards> Cards;
-
-    public static void printAllAsciiArt() {
-        List<Card> cards = BoardFactory.characterList();
-
+    public static String printAllAsciiArt(List<Card> cardList) {
         // Split each card's ASCII art into lines
-        List<String[]> cardLines = getCardLines(cards);
+        List<String[]> cardLines = getCardLines(cardList);
 
         // Print each line of the ASCII arts side by side
-        printHorizontalArt(cardLines);
+        return printHorizontalArt(cardLines);
     }
 
     private static List<String[]> getCardLines(List<Card> cards) {
@@ -28,7 +19,8 @@ public class Board {
                 .toList();
     }
 
-    private static void printHorizontalArt(List<String[]> cardLines) {
+    private static String printHorizontalArt(List<String[]> cardLines) {
+        String board = "";
         // Get the number of lines in the ASCII arts
         int numLines = cardLines.get(0).length;
 
@@ -37,19 +29,14 @@ public class Board {
             for (String[] lines : cardLines) {
                 // Print the corresponding line or a separator if it's shorter
                 if (i < lines.length) {
-                    System.out.print(lines[i]);
+                    board = board.concat(lines[i]);
                 } else {
-                    System.out.print(" ".repeat(lines[0].length())); // Add spaces as separator
+                    board = board.concat(" ".repeat(lines[0].length())); // Add spaces as separator
                 }
-                System.out.print("   "); // Adjust this separator as needed
+                board = board.concat("   "); // Adjust this separator as needed
             }
-            System.out.println(); // Move to the next line after printing each row
+            board = board.concat("\n"); // Move to the next line after printing each row
         }
+        return board;
     }
-
-    public static void main(String[] args) {
-        printAllAsciiArt();
-    }
-
-
 }
