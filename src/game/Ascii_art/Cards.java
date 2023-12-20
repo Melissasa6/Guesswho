@@ -30,7 +30,7 @@ public class Cards {
                     "| | " + ORANGE.getAsciiCode() + "  / \\  / \\   " + RESET.getAsciiCode() + "| |\n" +
                     "| | " + ORANGE.getAsciiCode() + "#_|" + BROWN.getAsciiCode() + "0" + ORANGE.getAsciiCode() + "|==|" + BROWN.getAsciiCode() + "0" + ORANGE.getAsciiCode() + "|_#" + RESET.getAsciiCode() + " | |\n" +
                     "| |   " + ORANGE.getAsciiCode() + "\\_/  \\_/   " + RESET.getAsciiCode() + "| |\n" +
-                    "| \\/\\    ^    /\\/  | \n" +
+                    "| \\/\\    ^    /\\/  |\n" +
                     "|    \\  ===  /     |\n" +
                     "|     \\_____/      |\n" +
                     "|      _|_|_       |\n" +
@@ -48,7 +48,7 @@ public class Cards {
                     "| | " + ORANGE.getAsciiCode() + "  / \\  / \\   " + RESET.getAsciiCode() + "| |\n" +
                     "| | " + ORANGE.getAsciiCode() + "#_|" + GREEN.getAsciiCode() + "0" + ORANGE.getAsciiCode() + "|==|" + GREEN.getAsciiCode() + "0" + ORANGE.getAsciiCode() + "|_#" + RESET.getAsciiCode() + " | |\n" +
                     "| |   " + ORANGE.getAsciiCode() + "\\_/  \\_/   " + RESET.getAsciiCode() + "| |\n" +
-                    "| \\/\\    ^    /\\/  | \n" +
+                    "| \\/\\    ^    /\\/  |\n" +
                     "|    \\  ===  /     |\n" +
                     "|     \\_____/      |\n" +
                     "|      _|_|_       |\n" +
@@ -66,7 +66,7 @@ public class Cards {
                     "| | " + ORANGE.getAsciiCode() + "  / \\  / \\   " + RESET.getAsciiCode() + "| |\n" +
                     "| | " + ORANGE.getAsciiCode() + "#_|" + BLUE.getAsciiCode() + "0" + ORANGE.getAsciiCode() + "|==|" + BLUE.getAsciiCode() + "0" + ORANGE.getAsciiCode() + "|_#" + RESET.getAsciiCode() + " | |\n" +
                     "| |   " + ORANGE.getAsciiCode() + "\\_/  \\_/   " + RESET.getAsciiCode() + "| |\n" +
-                    "| \\/\\    ^    /\\/  | \n" +
+                    "| \\/\\    ^    /\\/  |\n" +
                     "|    \\  ===  /     |\n" +
                     "|     \\_____/      |\n" +
                     "|      _|_|_       |\n" +

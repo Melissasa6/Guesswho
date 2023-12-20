@@ -65,6 +65,6 @@ public class Winner {
 
     public static void main(String[] args) {
         System.out.println(WINNER);
-        System.out.println(LOOSER);
+        System.out.println(LOSER);
     }
 }
