@@ -1,12 +1,11 @@
 package game.Ascii_art;
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import static game.Ascii_art.Colors.*;
 
 
 public class Cards {
     public final String asciiArtGlasses = "⌐■-■";
 
-    static final String asciiArtOneWithGlasses =
+    private static final String emilyAsciiArt =
             "+------------------+\n" +
                     "|" + YELLOW.getAsciiCode() +"   ###########" + RESET.getAsciiCode() + "    |\n" +
                     "|  /" + YELLOW.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\   |\n" +
@@ -23,7 +22,7 @@ public class Cards {
                     "|  | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "+------------------+\n";
 
-    static final String asciiArtTwoWithGlasses =
+    private static final String homerAsciiArt =
             "+------------------+\n" +
                     "|" + BROWN.getAsciiCode() +"   ###########" + RESET.getAsciiCode() + "    |\n" +
                     "|  /" + BROWN.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\   |\n" +
@@ -40,7 +39,7 @@ public class Cards {
                     "|  | |" + GRAY.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "+------------------+\n";
 
-    static final String asciiArtThreeWithGlasses =
+    private static final String miaAsciiArt =
             "+------------------+\n" +
                     "|" + RED.getAsciiCode() + "   ###########" + RESET.getAsciiCode() + "    |\n" +
                     "|  /" + RED.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\   |\n" +
@@ -57,7 +56,7 @@ public class Cards {
                     "|  | |" + PINK.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "+------------------+\n";
 
-    static final String asciiArtFourWithoutGlasses =
+    private static final String henryAsciiArt =
             "+------------------+\n" +
                     "| " + GRAY.getAsciiCode() + "   ##########" + RESET.getAsciiCode() + "    |\n" +
                     "|   /" + GRAY.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\  |\n" +
@@ -74,7 +73,7 @@ public class Cards {
                     "|  | |" + GREEN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "+------------------+\n";
 
-    static final String asciiArtFiveWithoutGlasses =
+    private static final String daisyAsciiArt =
             "+------------------+\n" +
                     "| " + PINK.getAsciiCode() + "   ##########" + RESET.getAsciiCode() + "    |\n" +
                     "|   /" + PINK.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\  |\n" +
@@ -91,7 +90,7 @@ public class Cards {
                     "|  | |" + BROWN.getAsciiCode() + "$$$$$$$" + RESET.getAsciiCode() + "| |   |\n" +
                     "+------------------+\n";
 
-    static final String asciiArtSixWithoutGlasses =
+    private static final String leviAsciiArt =
             "+------------------+\n" +
                     "| " + BROWN.getAsciiCode() + "   ##########" + RESET.getAsciiCode() + "    |\n" +
                     "|   /" + BROWN.getAsciiCode() + "###########" + RESET.getAsciiCode() + "\\  |\n" +
@@ -109,4 +108,22 @@ public class Cards {
                     "+------------------+\n";
 
 
+    public static String getEmilyAsciiArt() {
+        return emilyAsciiArt;
+    }
+    public static String getHomerAsciiArt() {
+        return homerAsciiArt;
+    }
+    public static String getMiaAsciiArt(){
+        return miaAsciiArt;
+    }
+    public static String getHenryAsciiArt() {
+        return henryAsciiArt;
+    }
+    public static String getDaisyAsciiArt() {
+        return daisyAsciiArt;
+    }
+    public static String getLeviAsciiArt() {
+        return leviAsciiArt;
+    }
 }
