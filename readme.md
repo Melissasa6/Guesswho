@@ -1,39 +1,45 @@
-# Guess Who Game
+<img src="/images/logo.png">
+
+<h1 align="center"> Guess Who Game </h1>
 Welcome to the Guess Who Game implemented in Java!
 This game is inspired in the well known Guess Who Board Game.
 Enjoy the Game and have fun!
 
 
 
+___
+
+## 📑 How it works 
 
 
-## How it works
-
-* Run the Server Class to start the game.
-* Run de Client Class;
+* Run the 'Server' class to start the game; 
+* Run the 'Client' class;
 * Follow the on-screen instructions to set up the game;
 * Wait until a second player enter the game;
-* Choose you mystery character;
+* Take your mystery character;
 * When it's your turn to play, choose to make a question or to make a guess;
-* Choose a question from the options;
-* If you thing you know who your opponent's mystery character is, type "guess" to make a guess;
+* Select a question from the options provided;
+* If you think you know who your opponent's mystery character is, type "/guess" to make a guess;
 * If the guess is wrong, you lose the game;
-* The first player getting the character rigth wins.
-* After each game, you can choose to play again or exit the program.
+* The first player to correctly guess the character wins; 
 
-## Languages
+
+___
+
+## 🚀 Language
 
 * Java
+___
 
-## Contributions
+## 💡 Contributions 
 
 * Contributions are welcome! If you have ideas for new features or improvements, feel free to open an issue or submit a pull request
 
 
-## Authors
+## 🌟 Authors
 
-* Luís 
-* André Monteiro
-* Melissa Sá
+* <a href=https://github.com/mtsluis/>Luís Matos
+* <a href=https://github.com/andrefmonteiro/>André Monteiro
+* <a href=https://github.com/melissasa6/>Melissa Sá
 * Filipe Pinto
 

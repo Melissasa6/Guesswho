@@ -1,6 +1,7 @@
 package game;
 
-import game.Ascii_art.Winner;
+import game.Ascii_art.Board;
+import game.Ascii_art.Titles;
 import game.commands.Command;
 
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class GuessWhoGame implements Runnable{
             if (checkIfGameCanStart() && !isGameStarted) {
                 startGame();
             }
-            if (isGameStarted) {
+            if (isGameStarted && !isGameFinished) {
                 playRound();
             }
         }
@@ -58,15 +59,19 @@ public class GuessWhoGame implements Runnable{
         choosePlayerCard();
         for (PlayerHandler player : players) {
             player.sendMessage(String.format(GameMessages.PLAYER_CARD, player.getChosenCard().getCharacterName().toUpperCase()));
+            player.sendMessage(player.getChosenCard().getAsciiArt());
         }
         broadcast(GameMessages.START_GAME);
     }
 
-    public void playRound() {
+    public synchronized void playRound() {
         round++;
         broadcast("~~ ROUND " + round + " ~~");
         for (PlayerHandler player : players) {
             PlayerHandler opponent = player.getOpponent();
+            player.sendMessage(Board.printAllAsciiArt(player.getCardList()));
+            opponent.sendMessage(Board.printAllAsciiArt(opponent.getCardList()));
+
 
             player.sendMessage(GameMessages.PLAYER_TURN);
             opponent.sendMessage(String.format(GameMessages.OPPONENT_TURN, player.getName()));
@@ -88,7 +93,7 @@ public class GuessWhoGame implements Runnable{
 
     private void addPlayer(PlayerHandler playerHandler) {
         players.add(playerHandler);
-        playerHandler.sendMessage(Winner.TITLE);
+        playerHandler.sendMessage(Titles.TITLE);
         playerHandler.sendMessage(GameMessages.COMMAND_HELP);
     }
 
@@ -116,6 +121,10 @@ public class GuessWhoGame implements Runnable{
 
     public void finishGame() {
         players.forEach(PlayerHandler::quitGame);
+    }
+
+    public void setGameFinished(boolean gameFinished) {
+        isGameFinished = gameFinished;
     }
 
     public class PlayerHandler implements Runnable {

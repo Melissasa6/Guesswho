@@ -1,6 +1,6 @@
 package game.Ascii_art;
 
-public class Winner {
+public class Titles {
     public final static String WINNER= """
             \u001B[34mYYYYYYY       YYYYYYY                                                                                iiii                    !!!\s
             Y:::::Y       Y:::::Y                                                                               i::::i                  !!:!!
@@ -17,8 +17,27 @@ public class Winner {
                    Y:::::Y    o:::::ooooo:::::ou:::::::::::::::uu             w:::::::w       w:::::::w        i::::::i n::::n    n::::n    \s
                 YYYY:::::YYYY o:::::::::::::::o u:::::::::::::::u              w:::::w         w:::::w         i::::::i n::::n    n::::n !!!\s
                 Y:::::::::::Y  oo:::::::::::oo   uu::::::::uu:::u               w:::w           w:::w          i::::::i n::::n    n::::n!!:!!
-                YYYYYYYYYYYYY    ooooooooooo       uuuuuuuu  uuuu                www             www           iiiiiiii nnnnnn    nnnnnn !!!\s""";
-
+                YYYYYYYYYYYYY    ooooooooooo       uuuuuuuu  uuuu                www             www           iiiiiiii nnnnnn    nnnnnn !!!\s
+                """;
+    public static final String LOSER= """
+                                                                                                                                            \s
+             \033[1;31mYYYYYYY       YYYYYYY                                     lllllll                                            tttt           !!!\s
+             Y:::::Y       Y:::::Y                                     l:::::l                                         ttt:::t          !!:!!
+             Y:::::Y       Y:::::Y                                     l:::::l                                         t:::::t          !:::!
+             Y::::::Y     Y::::::Y                                     l:::::l                                         t:::::t          !:::!
+             YYY:::::Y   Y:::::YYYooooooooooo   uuuuuu    uuuuuu        l::::l    ooooooooooo       ssssssssss   ttttttt:::::ttttttt    !:::!
+                Y:::::Y Y:::::Y oo:::::::::::oo u::::u    u::::u        l::::l  oo:::::::::::oo   ss::::::::::s  t:::::::::::::::::t    !:::!
+                 Y:::::Y:::::Y o:::::::::::::::ou::::u    u::::u        l::::l o:::::::::::::::oss:::::::::::::s t:::::::::::::::::t    !:::!
+                  Y:::::::::Y  o:::::ooooo:::::ou::::u    u::::u        l::::l o:::::ooooo:::::os::::::ssss:::::stttttt:::::::tttttt    !:::!
+                   Y:::::::Y   o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o s:::::s  ssssss       t:::::t          !:::!
+                    Y:::::Y    o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o   s::::::s            t:::::t          !:::!
+                    Y:::::Y    o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o      s::::::s         t:::::t          !!:!!
+                    Y:::::Y    o::::o     o::::ou:::::uuuu:::::u        l::::l o::::o     o::::ossssss   s:::::s       t:::::t    tttttt !!!\s
+                    Y:::::Y    o:::::ooooo:::::ou:::::::::::::::uu     l::::::lo:::::ooooo:::::os:::::ssss::::::s      t::::::tttt:::::t    \s
+                 YYYY:::::YYYY o:::::::::::::::o u:::::::::::::::u     l::::::lo:::::::::::::::os::::::::::::::s       tt::::::::::::::t !!!\s
+                 Y:::::::::::Y  oo:::::::::::oo   uu::::::::uu:::u     l::::::l oo:::::::::::oo  s:::::::::::ss          tt:::::::::::tt!!:!!
+                 YYYYYYYYYYYYY    ooooooooooo       uuuuuuuu  uuuu     llllllll   ooooooooooo     sssssssssss              ttttttttttt   !!!
+             """;
     public final static String TITLE = """
                                                                                                                                                     \s
                                           \u001B[34m.%%%%%%%%%_                                                  +#%%%%%+  %%%%+                              \s
@@ -42,29 +61,4 @@ public class Winner {
                                                        +#%%%%%%#######%:################%%%%%%##.#%      %#.                                        \s
                                                                                                    +%%#%´\u001B[0m                                           \s
             """;
-
-     public static final String LOSER= """
-                                                                                                                                            \s
-             \033[1;31mYYYYYYY       YYYYYYY                                     lllllll                                            tttt           !!!\s
-             Y:::::Y       Y:::::Y                                     l:::::l                                         ttt:::t          !!:!!
-             Y:::::Y       Y:::::Y                                     l:::::l                                         t:::::t          !:::!
-             Y::::::Y     Y::::::Y                                     l:::::l                                         t:::::t          !:::!
-             YYY:::::Y   Y:::::YYYooooooooooo   uuuuuu    uuuuuu        l::::l    ooooooooooo       ssssssssss   ttttttt:::::ttttttt    !:::!
-                Y:::::Y Y:::::Y oo:::::::::::oo u::::u    u::::u        l::::l  oo:::::::::::oo   ss::::::::::s  t:::::::::::::::::t    !:::!
-                 Y:::::Y:::::Y o:::::::::::::::ou::::u    u::::u        l::::l o:::::::::::::::oss:::::::::::::s t:::::::::::::::::t    !:::!
-                  Y:::::::::Y  o:::::ooooo:::::ou::::u    u::::u        l::::l o:::::ooooo:::::os::::::ssss:::::stttttt:::::::tttttt    !:::!
-                   Y:::::::Y   o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o s:::::s  ssssss       t:::::t          !:::!
-                    Y:::::Y    o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o   s::::::s            t:::::t          !:::!
-                    Y:::::Y    o::::o     o::::ou::::u    u::::u        l::::l o::::o     o::::o      s::::::s         t:::::t          !!:!!
-                    Y:::::Y    o::::o     o::::ou:::::uuuu:::::u        l::::l o::::o     o::::ossssss   s:::::s       t:::::t    tttttt !!!\s
-                    Y:::::Y    o:::::ooooo:::::ou:::::::::::::::uu     l::::::lo:::::ooooo:::::os:::::ssss::::::s      t::::::tttt:::::t    \s
-                 YYYY:::::YYYY o:::::::::::::::o u:::::::::::::::u     l::::::lo:::::::::::::::os::::::::::::::s       tt::::::::::::::t !!!\s
-                 Y:::::::::::Y  oo:::::::::::oo   uu::::::::uu:::u     l::::::l oo:::::::::::oo  s:::::::::::ss          tt:::::::::::tt!!:!!
-                 YYYYYYYYYYYYY    ooooooooooo       uuuuuuuu  uuuu     llllllll   ooooooooooo     sssssssssss              ttttttttttt   !!!
-             """;
-
-    public static void main(String[] args) {
-        System.out.println(WINNER);
-        System.out.println(LOSER);
-    }
 }

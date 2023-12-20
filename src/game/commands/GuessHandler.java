@@ -1,5 +1,6 @@
 package game.commands;
 
+import game.Ascii_art.Titles;
 import game.GameMessages;
 import game.GuessWhoGame;
 
@@ -10,10 +11,12 @@ public class GuessHandler implements CommandHandler {
         playerHandler.sendMessage(GameMessages.PLAYER_GUESS);
         String opponentCard = playerHandler.getOpponent().getChosenCard().getCharacterName();
         String guess = playerHandler.getIn().nextLine();
-        if (guess.equals(opponentCard)) {
-            playerHandler.sendMessage(GameMessages.PLAYER_WON);
+        if (guess.equalsIgnoreCase(opponentCard)) {
+            playerHandler.sendMessage(Titles.WINNER);
+            game.setGameFinished(true);
             return;
         }
-        playerHandler.sendMessage(GameMessages.FAIL_GUESS);
+        playerHandler.sendMessage(Titles.LOSER);
+        game.setGameFinished(true);
     }
 }
