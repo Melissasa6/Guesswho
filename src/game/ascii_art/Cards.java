@@ -121,7 +121,7 @@ public class Cards {
                     "|  |            |  |\n" +
                     "|  |   " + GRAY.getAsciiCode() + "0" + RESET.getAsciiCode() + "    " + GRAY.getAsciiCode() + "0" + RESET.getAsciiCode() + "   |  |\n" +
                     "|  |            |  |\n" +
-                    "|  \\/\\    ^   /\\/  |\n" +
+                    "|  \\/\\ __^__  /\\/  |\n" +
                     "|    \\  ===  /     |\n" +
                     "|     \\_____/      |\n" +
                     "|      _|_|_       |\n" +
