@@ -11,6 +11,9 @@ import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * GuessWhoGame is the class that implements the game logic
+ */
 public class GuessWhoGame implements Runnable{
 
     private ExecutorService service;
@@ -22,6 +25,8 @@ public class GuessWhoGame implements Runnable{
 
     /**
      * Constructor method
+     * Creates a fixed thread pool for the PlayerHandler
+     * Creates a list that will have the players
      */
     public GuessWhoGame() {
         service = Executors.newFixedThreadPool(MAX_PLAYERS);
@@ -49,8 +54,8 @@ public class GuessWhoGame implements Runnable{
     }
 
     /**
-     * Only allows 2 players in each game
-     * @return true if the game can start or false if ther isn't enough players available to start the game
+     * Only allows 2 players in the game
+     * @return true if the max amount of players joined the game or false if there isn't enough players available to start the game
      */
     public boolean isGameFull(){
         return players.size() == MAX_PLAYERS;
@@ -66,7 +71,8 @@ public class GuessWhoGame implements Runnable{
     }
 
     /**
-     * Checks if a game can start and start the game
+     * Checks if a game can start and starts the game
+     * @return true if the game has the max amount of players and if both chose a name
      */
     private synchronized boolean checkIfGameCanStart() {
         return isGameFull() && (players.get(0).getName() != null) && (players.get(1).getName() != null);
@@ -87,7 +93,10 @@ public class GuessWhoGame implements Runnable{
     }
 
     /**
-     * Plays a round of the game, communicating with the players
+     * Counts the rounds
+     * Informs players if it's their turn
+     * Checks when the /question or /guess commands are executed by the player in the active turn
+     * Checks if game conditions to end are reached
      */
     public synchronized void playRound() {
         round++;
@@ -118,7 +127,7 @@ public class GuessWhoGame implements Runnable{
 
     /**
      * Allows to add a player to the game
-     * Print the TITLE of the game for each player
+     * Prints the TITLE of the game for each player
      * @param playerHandler represents the player to be added
      */
     private void addPlayer(PlayerHandler playerHandler) {
@@ -129,14 +138,14 @@ public class GuessWhoGame implements Runnable{
 
     /**
      * Broadcast a message to each player
-     * @param message represents the message to be boradcasted
+     * @param message represents the message to be sent to both players
      */
     public void broadcast(String message) {
         players.forEach(playerHandler -> playerHandler.sendMessage(message));
     }
 
     /**
-     * Allows to send a card from the list of cards available randomly to the players that represents their mystery card
+     * Selects a random mystery card for the player
      */
     private void choosePlayerCard() {
         Random rand = new Random();
@@ -148,17 +157,18 @@ public class GuessWhoGame implements Runnable{
 
     /**
      * Removes a player from the game
-     * @param clientConnectionHandler represents the player to be removed
+     * @param playerHandler represents the player to be removed
      */
-    public void removePlayer(PlayerHandler clientConnectionHandler) {
-        players.remove(clientConnectionHandler);
+    public void removePlayer(PlayerHandler playerHandler) {
+        players.remove(playerHandler);
     }
 
     /**
-     * Stop the game, causing players to quit
+     * Stops the game, causing players to quit
      */
     public void finishGame() {
         players.forEach(PlayerHandler::quitGame);
+        isGameFinished = true;
     }
 
     public void setGameFinished(boolean gameFinished) {
@@ -198,9 +208,9 @@ public class GuessWhoGame implements Runnable{
 
         /**
          * Add player to the game
+         * Asks players their name
          * Verify if there is 2 players to join the game
-         * Send a message to all players to inform that a new player has arrived
-         * Checks if in the end of game the thread was interrupted and forces the players to quit
+         * Checks if in the end of game the thread was interrupted and removes the player from the server
          */
         @Override
         public void run() {
@@ -248,8 +258,8 @@ public class GuessWhoGame implements Runnable{
         }
 
         /**
-         *
-         * @return
+         * Gets the player opponent
+         * @return the opponent of this player
          */
         public PlayerHandler getOpponent() {
             if (players.get(0).equals(this)) {
@@ -259,7 +269,7 @@ public class GuessWhoGame implements Runnable{
         }
 
         /**
-         * Sen message to the opponents
+         * Sen message to the opponent
          * @param message message to send
          */
         public void sendMessageToOpponent(String message) {
@@ -268,7 +278,7 @@ public class GuessWhoGame implements Runnable{
         }
 
         /**
-         * Ask the name os each player when they entered the game
+         * Asks the name to the player
          */
         private void askName() {
             sendMessage(GameMessages.ENTER_NAME);
@@ -278,16 +288,17 @@ public class GuessWhoGame implements Runnable{
 
 
         /**
-         * Informs how to start a command
+         * Checks if the message starts with "/", representing a command
+         * @return true if the message starts with "/"
          */
         private boolean isCommand(String message) {
             return message.startsWith("/");
         }
 
         /**
-         * Extract the first wor from the message
+         * Extract the first word from the message
          * Get the corresponding command based on the description
-         * Call the handlers method associated with the command
+         * Call the handler method associated with the command
          */
         private void dealWithCommand(String message) throws IOException {
             String description = message.split(" ")[0];
@@ -322,7 +333,7 @@ public class GuessWhoGame implements Runnable{
 
 
         /**
-         * Close the connection from the players
+         * Close the player connection
          */
         private void quitGame() {
             try {

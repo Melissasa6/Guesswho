@@ -6,7 +6,7 @@ import game.GuessWhoGame;
 public class QuestionHandler implements CommandHandler{
 
     /**
-     * Allow to each player choose a question from a list of questions predefined from the game
+     * Allow to each player choose a question from a list to ask their opponent
      * @param game represents the instance of a member class GuessWhoGame
      * @param playerHandler represents the access of the properties and methods of player
      */

@@ -1,7 +1,7 @@
 package game.commands;
 
 /**
- * Commands available to be used by the players in each game
+ * Commands available to the player in each game
  */
 public enum Command {
     HELP("/help", new HelpHandler()),
@@ -18,9 +18,9 @@ public enum Command {
 
 
     /**
-     * Method constructor of the enum command this accept two arguments
+     * Constructor of the enum command, accepts two arguments
      * @param description represents the name of the command
-     * @param handler represents the command that will receive and need to be handler
+     * @param handler represents the command method that will occur
      */
     Command(String description, CommandHandler handler){
         this.description = description;
@@ -30,7 +30,7 @@ public enum Command {
     /**
      * Method to get a command enum constant based on its description
      * @param description represents the name of the command
-     * @return the correponding command enum constant or NOT_FOUND if not found
+     * @return the corresponding command constant or NOT_FOUND if not found
      */
     public static Command getCommandFromDescription(String description){
         for(Command command : values()){
@@ -42,7 +42,7 @@ public enum Command {
     }
 
     /**
-     * Allows to know what command that will be used
+     * Gets the command that will be used
      * @return the enum command
      */
     public CommandHandler getHandler() {

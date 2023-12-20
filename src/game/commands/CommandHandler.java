@@ -1,18 +1,16 @@
 package game.commands;
 
-import client.Client;
 import game.GuessWhoGame;
-import server.Server;
 
 /**
- * Al the commands implement the interface command handler
+ * All commands implement the interface CommandHandler
  */
 public interface CommandHandler {
 
   /**
    * This method represents the action that each player will have
-   * @param game represents the instance of a member class GuessWhoGame
-   * @param playerHandler represents the access of the properties and methods of player
+   * @param game represents the instance of a GuessWhoGame
+   * @param playerHandler allows the access to the properties and methods of PlayerHandler
    * @throws NullPointerException when player closes the socket from his side
    */
 

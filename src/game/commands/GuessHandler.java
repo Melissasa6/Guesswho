@@ -7,9 +7,9 @@ import game.GuessWhoGame;
 public class GuessHandler implements CommandHandler {
 
     /**
-     * Allows each player to take a guess if he think he knows who the opponents mystery card is
-     * If the guess is correct wins the game
-     * If the guess is wrong loses the game
+     * Allows the player guess the opponent's card
+     * If the guess is correct the player wins the game
+     * If the guess is wrong the player loses the game
      * @param game represents the instance of a member class GuessWhoGame
      * @param playerHandler represents the access of the properties and methods of player
      * @throws NullPointerException when player closes the socket from his side

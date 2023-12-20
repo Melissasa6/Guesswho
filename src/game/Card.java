@@ -2,6 +2,10 @@ package game;
 
 import game.ascii_art.Colors;
 
+/**
+ * Class that represents a character card
+ * It has all the different characteristics and ascii representation of the character
+ */
 public class Card {
 
     private final String characterName;
@@ -12,7 +16,7 @@ public class Card {
     private String asciiArt;
 
     /**
-     * The constructor method that accepts 6 parametrs
+     * The constructor method that accepts six parameters
      * @param characterName represents the name of the character
      * @param hairColor represents the hair colour of the character
      * @param eyeColor represents the eye colour of the character

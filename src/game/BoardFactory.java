@@ -7,7 +7,7 @@ import java.util.List;
 import static game.ascii_art.Colors.*;
 
 /**
- * Is the factory of the cards
+ * Class that builds the different character cards and puts them into a list, representing the board
  */
 public final class BoardFactory {
 
@@ -22,6 +22,7 @@ public final class BoardFactory {
 
     /**
      * Method to return the list of cards
+     * @return a list of cards
      */
     public static List<Card> characterList() {
 

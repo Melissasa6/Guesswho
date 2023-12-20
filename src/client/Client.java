@@ -3,9 +3,14 @@ package client;
 import java.io.*;
 import java.net.Socket;
 
+/**
+ * Class that creates a remote client to join a server
+ */
 public class Client {
 
-    /** Main method of the class Client...*/
+    /**
+     * Main method of the class Client
+     */
     public static void main(String[] args) {
         Client client = new Client();
         try {
@@ -19,7 +24,7 @@ public class Client {
     /**
      * Starts player connection in the specified port
      * Read and send messages to the server
-     * @param host represents the IP adress from the server
+     * @param host represents the IP address from the server
      * @param port represents the port number on which the server is waiting for connections.
      * Create a new thread to send messages to the server
      * @throws IOException if an error occurs  while creating the client socket
@@ -49,7 +54,7 @@ public class Client {
 
 
         /**
-         * Constructor method to initialize the properties
+         * Constructor method to initialize the class
          */
         public PlayerInput(BufferedWriter out, Socket playerSocket) {
             this.out = out;
@@ -58,7 +63,7 @@ public class Client {
         }
 
         /**
-         * Read the input in console from the player if the player have permission to write
+         * Reads the input in console from the player
          */
         @Override
         public void run() {

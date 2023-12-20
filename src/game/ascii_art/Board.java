@@ -3,12 +3,16 @@ package game.ascii_art;
 import game.Card;
 import java.util.List;
 
+/**
+ * Class responsible for drawing the player board
+ */
 public class Board {
 
 
     /**
      * Split each card's ASCII art into lines
      * Print each line of the ASCII arts side by side
+     * @return The printed board
      */
     public static String printAllAsciiArt(List<Card> cardList) {
 
@@ -19,7 +23,8 @@ public class Board {
     }
 
     /**
-     *Collect lines of each card's ASCII arts
+     *Collect lines from each card's ASCII arts
+     * @return a list of card asciiart lines
      */
     private static List<String[]> getCardLines(List<Card> cards) {
         return cards.stream()
@@ -32,6 +37,7 @@ public class Board {
      * Print each line of the ASCII arts side by side
      * Print the corresponding line or a separator if it's shorter
      * Move to the next line after printing each row
+     * @return all cards printed in a horizontal direction
      */
     private static String printHorizontalArt(List<String[]> cardLines) {
         String board = "";

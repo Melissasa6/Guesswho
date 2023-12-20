@@ -35,7 +35,7 @@ public enum Colors {
     }
 
     /**
-     *
+     * Enum to string
      * @return the human-readable color name
      */
     @Override

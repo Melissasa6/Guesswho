@@ -7,7 +7,21 @@ import java.net.ServerSocket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Class that creates the server, starts a game and waits for players
+ * When a player arrives his socket will be sent to the game
+ */
 public class Server {
+
+    private ExecutorService service;
+
+    public ServerSocket serverSocket;
+    private static final int PORT = 8080;
+    /**
+     * Constructor method
+     */
+    public Server() {
+    }
 
     /** Main method of the class Server...*/
     public static void main(String[] args) {
@@ -19,22 +33,10 @@ public class Server {
         }
     }
 
-    private ExecutorService service;
-    public ServerSocket serverSocket;
-    //private List<GuessWhoGame> gameList;
-    private static final int PORT = 8080;
-
-    /**
-     * Constructor method
-     */
-    public Server() {
-        //gameList = new LinkedList<>();
-    }
-
     /**
      * Starts the server, creating a server socket and accepting players
-     * @param port The port number on which the server will listen for incomming messages
-     * @throws IOException if an error occurs while creating the server socket
+     * @param port The port number on which the server will listen for incoming messages
+     * @throws IOException if an error occurs while starting the server
      */
     public void start(int port) throws IOException {
         serverSocket = new ServerSocket(port);

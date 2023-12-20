@@ -7,7 +7,7 @@ import game.GuessWhoGame;
 public class HideHandler implements CommandHandler{
 
     /**
-     * Allows to each player eliminate/hide cards from the board based on the answers
+     * Allows to each player hide cards from the board based on the answers
      * @param game represents the instance of a member class GuessWhoGame
      * @param playerHandler represents the access of the properties and methods of player
      * @throws NullPointerException represents the access of the properties and methods of player

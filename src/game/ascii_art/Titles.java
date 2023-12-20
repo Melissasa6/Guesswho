@@ -1,5 +1,8 @@
 package game.ascii_art;
 
+/**
+ * The title type ascii used at the beginning and at the end of the game
+ */
 public class Titles {
     public final static String WINNER= """
             \u001B[34mYYYYYYY       YYYYYYY                                                                                iiii                    !!!\s

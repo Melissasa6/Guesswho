@@ -2,9 +2,8 @@ package game;
 
 import static game.ascii_art.Colors.*;
 
-
 /**
- * Messages used during the game
+ * Messages sent to the player during the game
  */
 public final class GameMessages {
 

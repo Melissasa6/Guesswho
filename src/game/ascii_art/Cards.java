@@ -1,8 +1,9 @@
 package game.ascii_art;
 import static game.ascii_art.Colors.*;
 
-// TODO - Create ascii art for turned card
-
+/**
+ * Class that holds the ascii art for the cards
+ */
 public class Cards {
 
     private static final String hiddenAsciiArt =
