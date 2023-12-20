@@ -10,16 +10,25 @@ public final class GameMessages {
     public static final String PLAYER_JOINED = "Player %s joined the game!\n";
     public static final String START_GAME = "\nTHE GAME IS ON!\n";
     public static final String GAME_RULES = """
-            ********** Insert game rules here ********
+            \nList of rules:
+            1 - Two players are required to play the game
+            2 - Each player takes a mystery character card from a set of predefined character cards. These cards represent the mystery characters.
+            3 - In first round each player must use yes or no questions to narrow down the possibilities to try to figure out the other player's mystery character
+            4 - In the next rounds they can choose ask a new question or try to guess the opponent's mystery character
+            5 - Each player must eliminate characters from the board based on the answers
+            6 - If the guess is incorrect, that player loses the game
+            7 - The first player to correctly guess the opponent's mystery character automatically wins the game
+            8 - In the end, players can choose to play another round or quit the game
             """;
 
     public static final String COMMAND_HELP = """
             \nList of available commands:
             /help\t\t\t Shows the help menu
             /rules\t\t\t Brings up the rulebook
-            /question\t\t Ask the opponent a question
+            /board\t\t\t Shows the current board state
             /mycard\t\t\t Check player own character
             /hide <name>\t Hides one or more characters from your board
+            /question\t\t Ask the opponent a question
             /guess <name>\t Attempt to guess the opponent character
             /quit\t\t\t Quits the game
             """;

@@ -17,12 +17,14 @@ public class GuessWhoGame implements Runnable{
     private final int MAX_PLAYERS = 2;
     private boolean isGameStarted;
     private boolean isGameFinished;
+    private int round;
 
     public GuessWhoGame() {
         service = Executors.newFixedThreadPool(MAX_PLAYERS);
         players = new ArrayList<>();
         isGameStarted = false;
         isGameFinished = false;
+        round = 0;
     }
 
     @Override
@@ -58,12 +60,14 @@ public class GuessWhoGame implements Runnable{
     }
 
     public void playRound() {
+        round++;
+        broadcast("~~ ROUND " + round + " ~~");
         for (PlayerHandler player : players) {
-
             PlayerHandler opponent = player.getOpponent();
 
             player.sendMessage(GameMessages.PLAYER_TURN);
             opponent.sendMessage(String.format(GameMessages.OPPONENT_TURN, player.getName()));
+
             while (true) {
                 if (player.getMessage() == null || opponent.getMessage() == null) {
                     continue;
