@@ -17,7 +17,6 @@ public class HideHandler implements CommandHandler{
         String message = playerHandler.getMessage();
 
         String[] cardNames = message.split(" ")[1].split(",");
-
         for (String name : cardNames) {
             for (Card card : playerHandler.getCardList()){
                 if (card.getCharacterName().equalsIgnoreCase(name)) {
@@ -25,5 +24,6 @@ public class HideHandler implements CommandHandler{
                 }
             }
         }
+        playerHandler.sendMessage("Cards hidden.");
     }
 }

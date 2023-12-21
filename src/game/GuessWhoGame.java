@@ -98,13 +98,14 @@ public class GuessWhoGame implements Runnable{
      * Checks when the /question or /guess commands are executed by the player in the active turn
      * Checks if game conditions to end are reached
      */
-    public synchronized void playRound() {
+    public void playRound() {
+        players.get(0).sendMessage(Board.printAllAsciiArt(players.get(0).getCardList()));
+        players.get(1).sendMessage(Board.printAllAsciiArt(players.get(1).getCardList()));
+
         round++;
         broadcast("~~ ROUND " + round + " ~~");
         for (PlayerHandler player : players) {
             PlayerHandler opponent = player.getOpponent();
-            player.sendMessage(Board.printAllAsciiArt(player.getCardList()));
-            opponent.sendMessage(Board.printAllAsciiArt(opponent.getCardList()));
 
 
             player.sendMessage(GameMessages.PLAYER_TURN);
@@ -115,7 +116,7 @@ public class GuessWhoGame implements Runnable{
                     continue;
                 }
                 String answer;
-                if (player.getMessage().equals("/question") || player.getMessage().equals("/guess")) {
+                if (player.getMessage().equals("/question")) {
                     answer = opponent.getMessage();
                     if (answer.equalsIgnoreCase("no") || answer.equalsIgnoreCase("yes")) {
                         break;
@@ -188,7 +189,6 @@ public class GuessWhoGame implements Runnable{
         private List<Card> cardList;
         private Card chosenCard;
 
-
         /**
          * Constructor method
          * Initilizes player attributes
@@ -233,11 +233,6 @@ public class GuessWhoGame implements Runnable{
                         dealWithCommand(message);
                         continue;
                     }
-                    if (message.equals("")) {
-                        System.out.println("Empty message");
-                        // continue;
-                    }
-
                     sendMessageToOpponent(message);
 
                 } catch (IOException e) {
@@ -330,7 +325,6 @@ public class GuessWhoGame implements Runnable{
         public void setChosenCard(Card chosenCard) {
             this.chosenCard = chosenCard;
         }
-
 
         /**
          * Close the player connection

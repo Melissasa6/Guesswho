@@ -22,10 +22,10 @@ public class GuessHandler implements CommandHandler {
         String guess = playerHandler.getIn().nextLine();
         if (guess.equalsIgnoreCase(opponentCard)) {
             playerHandler.sendMessage(Titles.WINNER);
-            game.setGameFinished(true);
+            game.finishGame();
             return;
         }
         playerHandler.sendMessage(Titles.LOSER);
-        game.setGameFinished(true);
+        game.finishGame();
     }
 }
