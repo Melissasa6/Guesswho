@@ -168,7 +168,9 @@ public class GuessWhoGame implements Runnable{
      * Stops the game, causing players to quit
      */
     public void finishGame() {
-        players.forEach(PlayerHandler::quitGame);
+        for (PlayerHandler player : players){
+            player.quitGame();
+        }
         isGameFinished = true;
     }
 
